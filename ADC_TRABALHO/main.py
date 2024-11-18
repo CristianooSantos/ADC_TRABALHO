@@ -1,4 +1,5 @@
 from Classes.livro import Livro
+from Classes.funcionario import Funcionario
 
 def menu_principal():
     while True:
@@ -16,7 +17,7 @@ def menu_principal():
         elif opcao == "2":
             menu_livros()
         elif opcao == "3":
-            break
+            menu_funcionarios()
         elif opcao == "4":
             break
         elif opcao == "5":
@@ -74,7 +75,54 @@ def menu_livros():
         else:
             print("Opção inválida! Tente novamente.")
             
+def menu_funcionarios():
+    while True:
+        print("\nGerenciamento de Funcionários")
+        print("1. Adicionar Funcionário")
+        print("2. Listar Funcionários")
+        print("3. Atualizar Funcionário")
+        print("4. Deletar Funcionário")
+        print("5. Voltar ao Menu Principal")
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            id_funcionario = input("ID do Funcionário: ")
+            nome = input("Nome: ")
+            morada = input("Morada: ")
+            telefone = input("Telefone: ")
+            nif = input("NIF: ")
+            email = input("Email: ")
+            funcionario = Funcionario(id_funcionario, nome, morada, telefone, nif, email)
+            funcionario.salvar()
+
+        elif opcao == "2":
+            funcionarios = Funcionario.listar_todos()
+            if funcionarios:
+                for func in funcionarios:
+                    print(vars(func))
+
+        elif opcao == "3":
+            id_funcionario = input("ID do Funcionário: ")
+            funcionario = Funcionario.obter(id_funcionario)
+            if funcionario:
+                nome = input("Novo Nome: ")
+                morada = input("Nova Morada: ")
+                telefone = input("Novo Telefone: ")
+                nif = input("Novo NIF: ")
+                email = input("Novo Email: ")
+                Funcionario.atualizar(id_funcionario, nome=nome or funcionario.nome, morada=morada, telefone=telefone, nif=nif, email=email)
+            else:
+                print("Funcionário não encontrado.")
+
+        elif opcao == "4":
+            id_funcionario = input("ID do Funcionário: ")
+            Funcionario.deletar(id_funcionario)
+
+        elif opcao == "5":
+            break
+        else:
+            print("Opção inválida! Tente novamente.")
+            
 if __name__ == "__main__":
     menu_principal()
-
-
