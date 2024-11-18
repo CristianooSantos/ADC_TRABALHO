@@ -1,6 +1,6 @@
 from Classes.livro import Livro
 from Classes.funcionario import Funcionario
-
+from Classes.emprestimo import Emprestimo
 def menu_principal():
     while True:
         print("\nSistema de Gestão da Biblioteca")
@@ -120,6 +120,41 @@ def menu_funcionarios():
             Funcionario.deletar(id_funcionario)
 
         elif opcao == "5":
+            break
+        else:
+            print("Opção inválida! Tente novamente.")
+
+def menu_emprestimos():
+    while True:
+        print("\nGerenciamento de Empréstimos")
+        print("1. Criar Empréstimo")
+        print("2. Consultar Empréstimo")
+        print("3. Deletar Empréstimo")
+        print("4. Voltar ao Menu Principal")
+
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            isbn_livro = input("ISBN do Livro: ")
+            numero_leitor = input("Número do Leitor: ")
+            id_funcionario = input("ID do Funcionário: ")
+            emprestimo = Emprestimo(isbn_livro, numero_leitor, id_funcionario)
+            emprestimo.salvar()
+            enviar_notificacao(numero_leitor, "Seu livro foi emprestado com sucesso!")
+
+        elif opcao == "2":
+            id_emprestimo = int(input("ID do Empréstimo: "))
+            emprestimo = Emprestimo.obter(id_emprestimo)
+            if emprestimo:
+                print(vars(emprestimo))
+            else:
+                print("Empréstimo não encontrado.")
+
+        elif opcao == "3":
+            id_emprestimo = int(input("ID do Empréstimo: "))
+            Emprestimo.deletar(id_emprestimo)
+
+        elif opcao == "4":
             break
         else:
             print("Opção inválida! Tente novamente.")
