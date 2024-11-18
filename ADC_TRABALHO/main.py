@@ -33,45 +33,66 @@ def menu_livros():
         print("2. Consultar Livro")
         print("3. Atualizar Livro")
         print("4. Deletar Livro")
-        print("5. Voltar ao Menu Principal")
+        print("5. Listar Todos os Livros")
+        print("6. Voltar ao Menu Principal")
 
         opcao = input("Escolha uma opção: ")
 
         if opcao == "1":
-            isbn = input("ISBN: ")
+            id_livro = input("ID do Livro: ")
             titulo = input("Título: ")
             autor = input("Autor: ")
             categoria = input("Categoria: ")
+            isbn = input("ISBN: ")
             ano_publicacao = input("Ano de Publicação: ")
-            livro = Livro(isbn, titulo, autor, categoria, ano_publicacao)
+            livro = Livro(id_livro, titulo, autor, categoria, isbn, ano_publicacao)
             livro.salvar()
 
         elif opcao == "2":
-            isbn = input("ISBN: ")
-            livro = Livro.obter(isbn)
+            id_livro = input("ID do Livro: ")
+            livro = Livro.obter(id_livro)
             if livro:
-                print(vars(livro))
+                print("\nInformações do Livro:")
+                print(f"ID: {livro.id_livro}")
+                print(f"Título: {livro.titulo}")
+                print(f"Autor: {livro.autor}")
+                print(f"Categoria: {livro.categoria}")
+                print(f"ISBN: {livro.isbn}")
+                print(f"Ano de Publicação: {livro.ano_publicacao}")
             else:
                 print("Livro não encontrado.")
 
         elif opcao == "3":
-            isbn = input("ISBN: ")
-            livro = Livro.obter(isbn)
+            id_livro = input("ID do Livro: ")
+            livro = Livro.obter(id_livro)
             if livro:
-                titulo = input("Novo Título: ")
-                autor = input("Novo Autor: ")
-                categoria = input("Nova Categoria: ")
-                ano_publicacao = input("Novo Ano de Publicação: ")
-                Livro.atualizar(isbn, titulo=titulo or livro.titulo, autor=autor, categoria=categoria, ano_publicacao=ano_publicacao)
+                print("\nDeixe o campo vazio para manter o valor atual.")
+                titulo = input(f"Novo Título ({livro.titulo}): ")
+                autor = input(f"Novo Autor ({livro.autor}): ")
+                categoria = input(f"Nova Categoria ({livro.categoria}): ")
+                isbn = input(f"Novo ISBN ({livro.isbn}): ")
+                ano_publicacao = input(f"Novo Ano de Publicação ({livro.ano_publicacao}): ")
+                Livro.atualizar(
+                    id_livro,
+                    titulo=titulo or livro.titulo,
+                    autor=autor or livro.autor,
+                    categoria=categoria or livro.categoria,
+                    isbn=isbn or livro.isbn,
+                    ano_publicacao=ano_publicacao or livro.ano_publicacao,
+                )
             else:
                 print("Livro não encontrado.")
 
         elif opcao == "4":
-            isbn = input("ISBN: ")
-            Livro.deletar(isbn)
+            id_livro = input("ID do Livro: ")
+            Livro.deletar(id_livro)
 
         elif opcao == "5":
+            Livro.listar_todos()
+
+        elif opcao == "6":
             break
+
         else:
             print("Opção inválida! Tente novamente.")
             
@@ -123,6 +144,6 @@ def menu_funcionarios():
             break
         else:
             print("Opção inválida! Tente novamente.")
-            
+
 if __name__ == "__main__":
     menu_principal()

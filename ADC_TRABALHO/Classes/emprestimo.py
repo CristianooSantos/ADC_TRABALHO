@@ -29,3 +29,18 @@ class Emprestimo:
             print(f"Empréstimo {id_emprestimo} deletado com sucesso.")
         else:
             print("Empréstimo não encontrado.")
+
+    @staticmethod
+    def listar_todos():
+        if Emprestimo.emprestimos:
+            print("\nLista de Empréstimos:")
+            for emprestimo in Emprestimo.emprestimos.values():
+                print(f"\nID Empréstimo: {emprestimo.id_emprestimo}")
+                print(f"ISBN Livro: {emprestimo.isbn_livro}")
+                print(f"Número do Leitor: {emprestimo.numero_leitor}")
+                print(f"ID Funcionário: {emprestimo.id_funcionario}")
+                print(f"Data do Empréstimo: {emprestimo.data_emprestimo}")
+                print(f"Data de Devolução: {emprestimo.data_devolucao}")
+                print("-" * 30)
+        else:
+            print("Nenhum empréstimo cadastrado.")
