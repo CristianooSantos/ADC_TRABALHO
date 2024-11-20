@@ -34,3 +34,18 @@ class Leitor:
             print(f"Leitor {numero_leitor} deletado com sucesso.")
         else:
             print("Leitor não encontrado.")
+
+    @staticmethod
+    def listar_todos():
+        if Leitor.leitores:
+            print("\nLista de Leitores:")
+            for leitor in Leitor.leitores.values():
+                print(f"\nNúmero do Leitor: {leitor.numero_leitor}")
+                print(f"Nome: {leitor.nome}")
+                print(f"Morada: {leitor.morada}")
+                print(f"Telefone: {leitor.telefone}")
+                print(f"NIF: {leitor.nif}")
+                print(f"Email: {leitor.email}")
+                print("-" * 30)
+        else:
+            print("Nenhum leitor cadastrado.")
