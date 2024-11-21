@@ -2,6 +2,7 @@ from Classes.livro import Livro
 from Classes.funcionario import Funcionario
 from Classes.emprestimo import Emprestimo
 from Classes.leitor import Leitor
+from datetime import datetime
 
 def menu_principal():
     while True:
@@ -10,7 +11,8 @@ def menu_principal():
         print("2. Gerir Livros")
         print("3. Gerir Funcionários")
         print("4. Gerir Empréstimos")
-        print("5. Sair")
+        print("5. Gerar Relatório Mensal")
+        print("6. Sair")
 
         opcao = input("Escolha uma opção: ")
 
@@ -23,6 +25,8 @@ def menu_principal():
         elif opcao == "4":
             menu_emprestimos()
         elif opcao == "5":
+            gerar_relatorio_mensal()
+        elif opcao == "6":
             print("Saindo do sistema...")
             break
         else:
@@ -231,17 +235,82 @@ def menu_emprestimos():
             Emprestimo.deletar(id_emprestimo)
 
         elif opcao == "4":
-            emprestimos = Emprestimo.listar_todos()
-            if emprestimos:
-                print("\nLista de Empréstimos:")
-                for emp in emprestimos:
-                    print(vars(emp))
+            Emprestimo.listar_todos()
 
         elif opcao == "5":
             break
 
         else:
             print("Opção inválida! Tente novamente.")
+
+def gerar_relatorio_mensal():
+    """
+    Gera e exibe um relatório mensal com informações sobre livros, leitores e empréstimos registrados.
+
+    O relatório inclui as seguintes informações:
+    - Total de livros cadastrados no sistema.
+    - Total de leitores cadastrados no sistema.
+    - Total de empréstimos realizados no mês atual.
+    - Total de livros devolvidos no mês atual.
+    - Número de leitores únicos ativos no mês.
+    - Livro mais popular (título e ID) com base no número de empréstimos.
+
+    Args:
+        Nenhum
+
+    Returns:
+        None: A função apenas exibe os dados processados no console.
+
+    Raises:
+        Nenhum
+
+    Exemplo de saída:
+        Relatório Mensal:
+        Total de Livros Cadastrados: 10
+        Total de Leitores Cadastrados: 15
+        Total de Empréstimos no Mês: 7
+        Livros Devolvidos no Mês: 5
+        Leitores Ativos no Mês: 6
+        Livro Mais Popular no Mês: "O Alquimista" (ID: 3)
+    """
+    hoje = datetime.now().date()  
+    inicio_mes = hoje.replace(day=1)  
+
+    emprestimos_mes = [
+        e for e in Emprestimo.emprestimos.values()
+        if e.data_emprestimo >= inicio_mes  
+    ]
+    total_emprestimos = len(emprestimos_mes)
+    livros_devolvidos = sum(1 for e in emprestimos_mes if e.data_devolucao <= hoje)
+    leitores_ativos = len(set(e.numero_leitor for e in emprestimos_mes))
+
+    livro_popular_id = None
+    livro_popular_titulo = None
+
+    if emprestimos_mes:
+        livros_contagem = {}
+        for e in emprestimos_mes:
+            livros_contagem[e.isbn_livro] = livros_contagem.get(e.isbn_livro, 0) + 1
+        livro_popular_id = max(livros_contagem, key=livros_contagem.get)
+        livro_popular = Livro.obter(livro_popular_id)
+        if livro_popular:
+            livro_popular_titulo = livro_popular.titulo
+
+    total_livros = len(Livro.livros)
+    total_leitores = len(Leitor.leitores)
+
+    print("\nRelatório Mensal:")
+    print(f"Total de Livros Cadastrados: {total_livros}")
+    print(f"Total de Leitores Cadastrados: {total_leitores}")
+    print(f"Total de Empréstimos no Mês: {total_emprestimos}")
+    print(f"Livros Devolvidos no Mês: {livros_devolvidos}")
+    print(f"Leitores Ativos no Mês: {leitores_ativos}")
+    if livro_popular_titulo and livro_popular_id:
+        print(f"Livro Mais Popular no Mês: {livro_popular_titulo} (ID: {livro_popular_id})")
+    else:
+        print("Livro Mais Popular no Mês: Nenhum")
+
+
 
 if __name__ == "__main__":
     menu_principal()
