@@ -1,7 +1,7 @@
-from Classes.livro import Livro
-from Classes.funcionario import Funcionario
-from Classes.emprestimo import Emprestimo
-from Classes.leitor import Leitor
+from livro import Livro
+from funcionario import Funcionario
+from emprestimo import Emprestimo
+from leitor import Leitor
 from datetime import datetime
 
 def menu_principal():
