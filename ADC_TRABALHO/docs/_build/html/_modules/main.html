@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>main &#8212; src  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for main</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">Classes.livro</span> <span class="kn">import</span> <span class="n">Livro</span>
+<span class="kn">from</span> <span class="nn">Classes.funcionario</span> <span class="kn">import</span> <span class="n">Funcionario</span>
+<span class="kn">from</span> <span class="nn">Classes.emprestimo</span> <span class="kn">import</span> <span class="n">Emprestimo</span>
+<span class="kn">from</span> <span class="nn">Classes.leitor</span> <span class="kn">import</span> <span class="n">Leitor</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<div class="viewcode-block" id="menu_principal">
+<a class="viewcode-back" href="../main.html#main.menu_principal">[docs]</a>
+<span class="k">def</span> <span class="nf">menu_principal</span><span class="p">():</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Sistema de Gestão da Biblioteca&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Gerir Leitores&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2. Gerir Livros&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3. Gerir Funcionários&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4. Gerir Empréstimos&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5. Gerar Relatório Mensal&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;6. Sair&quot;</span><span class="p">)</span>
+
+        <span class="n">opcao</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Escolha uma opção: &quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="n">menu_leitores</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
+            <span class="n">menu_livros</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span>
+            <span class="n">menu_funcionarios</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;4&quot;</span><span class="p">:</span>
+            <span class="n">menu_emprestimos</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;5&quot;</span><span class="p">:</span>
+            <span class="n">gerar_relatorio_mensal</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;6&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saindo do sistema...&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Opção inválida! Tente novamente.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="menu_leitores">
+<a class="viewcode-back" href="../main.html#main.menu_leitores">[docs]</a>
+<span class="k">def</span> <span class="nf">menu_leitores</span><span class="p">():</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Gerenciamento de Leitores&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Adicionar Leitor&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2. Consultar Leitor por ID&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3. Atualizar Leitor&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4. Deletar Leitor&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5. Listar Todos os Leitores&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;6. Voltar ao Menu Principal&quot;</span><span class="p">)</span>
+
+        <span class="n">opcao</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Escolha uma opção: &quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="n">numero_leitor</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Número do Leitor: &quot;</span><span class="p">)</span>
+            <span class="n">nome</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Nome: &quot;</span><span class="p">)</span>
+            <span class="n">morada</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Morada: &quot;</span><span class="p">)</span>
+            <span class="n">telefone</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Telefone: &quot;</span><span class="p">)</span>
+            <span class="n">nif</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;NIF: &quot;</span><span class="p">)</span>
+            <span class="n">email</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Email: &quot;</span><span class="p">)</span>
+            <span class="n">leitor</span> <span class="o">=</span> <span class="n">Leitor</span><span class="p">(</span><span class="n">numero_leitor</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">morada</span><span class="p">,</span> <span class="n">telefone</span><span class="p">,</span> <span class="n">nif</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span>
+            <span class="n">leitor</span><span class="o">.</span><span class="n">salvar</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
+            <span class="n">numero_leitor</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Número do Leitor: &quot;</span><span class="p">)</span>
+            <span class="n">leitor</span> <span class="o">=</span> <span class="n">Leitor</span><span class="o">.</span><span class="n">obter</span><span class="p">(</span><span class="n">numero_leitor</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">leitor</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Informações do Leitor:&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">leitor</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leitor não encontrado.&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span>
+            <span class="n">numero_leitor</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Número do Leitor: &quot;</span><span class="p">)</span>
+            <span class="n">leitor</span> <span class="o">=</span> <span class="n">Leitor</span><span class="o">.</span><span class="n">obter</span><span class="p">(</span><span class="n">numero_leitor</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">leitor</span><span class="p">:</span>
+                <span class="n">nome</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Novo Nome (</span><span class="si">{</span><span class="n">leitor</span><span class="o">.</span><span class="n">nome</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">leitor</span><span class="o">.</span><span class="n">nome</span>
+                <span class="n">morada</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nova Morada (</span><span class="si">{</span><span class="n">leitor</span><span class="o">.</span><span class="n">morada</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">leitor</span><span class="o">.</span><span class="n">morada</span>
+                <span class="n">telefone</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Novo Telefone (</span><span class="si">{</span><span class="n">leitor</span><span class="o">.</span><span class="n">telefone</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">leitor</span><span class="o">.</span><span class="n">telefone</span>
+                <span class="n">nif</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Novo NIF (</span><span class="si">{</span><span class="n">leitor</span><span class="o">.</span><span class="n">nif</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">leitor</span><span class="o">.</span><span class="n">nif</span>
+                <span class="n">email</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Novo Email (</span><span class="si">{</span><span class="n">leitor</span><span class="o">.</span><span class="n">email</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">leitor</span><span class="o">.</span><span class="n">email</span>
+                <span class="n">Leitor</span><span class="o">.</span><span class="n">atualizar</span><span class="p">(</span><span class="n">numero_leitor</span><span class="p">,</span> <span class="n">nome</span><span class="o">=</span><span class="n">nome</span><span class="p">,</span> <span class="n">morada</span><span class="o">=</span><span class="n">morada</span><span class="p">,</span> <span class="n">telefone</span><span class="o">=</span><span class="n">telefone</span><span class="p">,</span> <span class="n">nif</span><span class="o">=</span><span class="n">nif</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leitor não encontrado.&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;4&quot;</span><span class="p">:</span>
+            <span class="n">numero_leitor</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Número do Leitor: &quot;</span><span class="p">)</span>
+            <span class="n">Leitor</span><span class="o">.</span><span class="n">deletar</span><span class="p">(</span><span class="n">numero_leitor</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;5&quot;</span><span class="p">:</span>
+            <span class="n">Leitor</span><span class="o">.</span><span class="n">listar_todos</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;6&quot;</span><span class="p">:</span>
+            <span class="k">break</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Opção inválida! Tente novamente.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="menu_livros">
+<a class="viewcode-back" href="../main.html#main.menu_livros">[docs]</a>
+<span class="k">def</span> <span class="nf">menu_livros</span><span class="p">():</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Gerenciamento de Livros&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Adicionar Livro&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2. Consultar Livro por ID&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3. Atualizar Livro&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4. Deletar Livro&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5. Listar Todos os Livros&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;6. Voltar ao Menu Principal&quot;</span><span class="p">)</span>
+
+        <span class="n">opcao</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Escolha uma opção: &quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="n">id_livro</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ID do Livro: &quot;</span><span class="p">)</span>
+            <span class="n">titulo</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Título: &quot;</span><span class="p">)</span>
+            <span class="n">autor</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Autor: &quot;</span><span class="p">)</span>
+            <span class="n">categoria</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Categoria: &quot;</span><span class="p">)</span>
+            <span class="n">isbn</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ISBN: &quot;</span><span class="p">)</span>
+            <span class="n">ano_publicacao</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Ano de Publicação: &quot;</span><span class="p">)</span>
+            <span class="n">livro</span> <span class="o">=</span> <span class="n">Livro</span><span class="p">(</span><span class="n">id_livro</span><span class="p">,</span> <span class="n">titulo</span><span class="p">,</span> <span class="n">autor</span><span class="p">,</span> <span class="n">categoria</span><span class="p">,</span> <span class="n">isbn</span><span class="p">,</span> <span class="n">ano_publicacao</span><span class="p">)</span>
+            <span class="n">livro</span><span class="o">.</span><span class="n">salvar</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
+            <span class="n">id_livro</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ID do Livro: &quot;</span><span class="p">)</span>
+            <span class="n">livro</span> <span class="o">=</span> <span class="n">Livro</span><span class="o">.</span><span class="n">obter</span><span class="p">(</span><span class="n">id_livro</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">livro</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Informações do Livro:&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">livro</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Livro não encontrado.&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span>
+            <span class="n">id_livro</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ID do Livro: &quot;</span><span class="p">)</span>
+            <span class="n">livro</span> <span class="o">=</span> <span class="n">Livro</span><span class="o">.</span><span class="n">obter</span><span class="p">(</span><span class="n">id_livro</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">livro</span><span class="p">:</span>
+                <span class="n">titulo</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Novo Título (</span><span class="si">{</span><span class="n">livro</span><span class="o">.</span><span class="n">titulo</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">livro</span><span class="o">.</span><span class="n">titulo</span>
+                <span class="n">autor</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Novo Autor (</span><span class="si">{</span><span class="n">livro</span><span class="o">.</span><span class="n">autor</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">livro</span><span class="o">.</span><span class="n">autor</span>
+                <span class="n">categoria</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nova Categoria (</span><span class="si">{</span><span class="n">livro</span><span class="o">.</span><span class="n">categoria</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">livro</span><span class="o">.</span><span class="n">categoria</span>
+                <span class="n">isbn</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Novo ISBN (</span><span class="si">{</span><span class="n">livro</span><span class="o">.</span><span class="n">isbn</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">livro</span><span class="o">.</span><span class="n">isbn</span>
+                <span class="n">ano_publicacao</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Novo Ano de Publicação (</span><span class="si">{</span><span class="n">livro</span><span class="o">.</span><span class="n">ano_publicacao</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">livro</span><span class="o">.</span><span class="n">ano_publicacao</span>
+                <span class="n">Livro</span><span class="o">.</span><span class="n">atualizar</span><span class="p">(</span><span class="n">id_livro</span><span class="p">,</span> <span class="n">titulo</span><span class="o">=</span><span class="n">titulo</span><span class="p">,</span> <span class="n">autor</span><span class="o">=</span><span class="n">autor</span><span class="p">,</span> <span class="n">categoria</span><span class="o">=</span><span class="n">categoria</span><span class="p">,</span> <span class="n">isbn</span><span class="o">=</span><span class="n">isbn</span><span class="p">,</span> <span class="n">ano_publicacao</span><span class="o">=</span><span class="n">ano_publicacao</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Livro não encontrado.&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;4&quot;</span><span class="p">:</span>
+            <span class="n">id_livro</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ID do Livro: &quot;</span><span class="p">)</span>
+            <span class="n">Livro</span><span class="o">.</span><span class="n">deletar</span><span class="p">(</span><span class="n">id_livro</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;5&quot;</span><span class="p">:</span>
+            <span class="n">Livro</span><span class="o">.</span><span class="n">listar_todos</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;6&quot;</span><span class="p">:</span>
+            <span class="k">break</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Opção inválida! Tente novamente.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="menu_funcionarios">
+<a class="viewcode-back" href="../main.html#main.menu_funcionarios">[docs]</a>
+<span class="k">def</span> <span class="nf">menu_funcionarios</span><span class="p">():</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Gerenciamento de Funcionários&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Adicionar Funcionário&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2. Consultar Funcionário por ID&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3. Atualizar Funcionário&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4. Deletar Funcionário&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5. Listar Todos os Funcionários&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;6. Voltar ao Menu Principal&quot;</span><span class="p">)</span>
+
+        <span class="n">opcao</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Escolha uma opção: &quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="n">id_funcionario</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ID do Funcionário: &quot;</span><span class="p">)</span>
+            <span class="n">nome</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Nome: &quot;</span><span class="p">)</span>
+            <span class="n">morada</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Morada: &quot;</span><span class="p">)</span>
+            <span class="n">telefone</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Telefone: &quot;</span><span class="p">)</span>
+            <span class="n">nif</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;NIF: &quot;</span><span class="p">)</span>
+            <span class="n">email</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Email: &quot;</span><span class="p">)</span>
+            <span class="n">funcionario</span> <span class="o">=</span> <span class="n">Funcionario</span><span class="p">(</span><span class="n">id_funcionario</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">morada</span><span class="p">,</span> <span class="n">telefone</span><span class="p">,</span> <span class="n">nif</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span>
+            <span class="n">funcionario</span><span class="o">.</span><span class="n">salvar</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
+            <span class="n">id_funcionario</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ID do Funcionário: &quot;</span><span class="p">)</span>
+            <span class="n">funcionario</span> <span class="o">=</span> <span class="n">Funcionario</span><span class="o">.</span><span class="n">obter</span><span class="p">(</span><span class="n">id_funcionario</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">funcionario</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Informações do Funcionário:&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">funcionario</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Funcionário não encontrado.&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span>
+            <span class="n">id_funcionario</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ID do Funcionário: &quot;</span><span class="p">)</span>
+            <span class="n">funcionario</span> <span class="o">=</span> <span class="n">Funcionario</span><span class="o">.</span><span class="n">obter</span><span class="p">(</span><span class="n">id_funcionario</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">funcionario</span><span class="p">:</span>
+                <span class="n">nome</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Novo Nome (</span><span class="si">{</span><span class="n">funcionario</span><span class="o">.</span><span class="n">nome</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">funcionario</span><span class="o">.</span><span class="n">nome</span>
+                <span class="n">morada</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nova Morada (</span><span class="si">{</span><span class="n">funcionario</span><span class="o">.</span><span class="n">morada</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">funcionario</span><span class="o">.</span><span class="n">morada</span>
+                <span class="n">telefone</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Novo Telefone (</span><span class="si">{</span><span class="n">funcionario</span><span class="o">.</span><span class="n">telefone</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">funcionario</span><span class="o">.</span><span class="n">telefone</span>
+                <span class="n">nif</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Novo NIF (</span><span class="si">{</span><span class="n">funcionario</span><span class="o">.</span><span class="n">nif</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">funcionario</span><span class="o">.</span><span class="n">nif</span>
+                <span class="n">email</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Novo Email (</span><span class="si">{</span><span class="n">funcionario</span><span class="o">.</span><span class="n">email</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">funcionario</span><span class="o">.</span><span class="n">email</span>
+                <span class="n">Funcionario</span><span class="o">.</span><span class="n">atualizar</span><span class="p">(</span><span class="n">id_funcionario</span><span class="p">,</span> <span class="n">nome</span><span class="o">=</span><span class="n">nome</span><span class="p">,</span> <span class="n">morada</span><span class="o">=</span><span class="n">morada</span><span class="p">,</span> <span class="n">telefone</span><span class="o">=</span><span class="n">telefone</span><span class="p">,</span> <span class="n">nif</span><span class="o">=</span><span class="n">nif</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="n">email</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Funcionário não encontrado.&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;4&quot;</span><span class="p">:</span>
+            <span class="n">id_funcionario</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ID do Funcionário: &quot;</span><span class="p">)</span>
+            <span class="n">Funcionario</span><span class="o">.</span><span class="n">deletar</span><span class="p">(</span><span class="n">id_funcionario</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;5&quot;</span><span class="p">:</span>
+            <span class="n">Funcionario</span><span class="o">.</span><span class="n">listar_todos</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;6&quot;</span><span class="p">:</span>
+            <span class="k">break</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Opção inválida! Tente novamente.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="menu_emprestimos">
+<a class="viewcode-back" href="../main.html#main.menu_emprestimos">[docs]</a>
+<span class="k">def</span> <span class="nf">menu_emprestimos</span><span class="p">():</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Gerenciamento de Empréstimos&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Criar Empréstimo&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2. Consultar Empréstimo por ID&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3. Deletar Empréstimo&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4. Listar Todos os Empréstimos&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5. Voltar ao Menu Principal&quot;</span><span class="p">)</span>
+
+        <span class="n">opcao</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Escolha uma opção: &quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="n">isbn_livro</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ISBN do Livro: &quot;</span><span class="p">)</span>
+            <span class="n">numero_leitor</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Número do Leitor: &quot;</span><span class="p">)</span>
+            <span class="n">id_funcionario</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ID do Funcionário: &quot;</span><span class="p">)</span>
+            <span class="n">emprestimo</span> <span class="o">=</span> <span class="n">Emprestimo</span><span class="p">(</span><span class="n">isbn_livro</span><span class="p">,</span> <span class="n">numero_leitor</span><span class="p">,</span> <span class="n">id_funcionario</span><span class="p">)</span>
+            <span class="n">emprestimo</span><span class="o">.</span><span class="n">salvar</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
+            <span class="n">id_emprestimo</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ID do Empréstimo: &quot;</span><span class="p">)</span>
+            <span class="n">emprestimo</span> <span class="o">=</span> <span class="n">Emprestimo</span><span class="o">.</span><span class="n">obter</span><span class="p">(</span><span class="n">id_emprestimo</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">emprestimo</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Informações do Empréstimo:&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">emprestimo</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Empréstimo não encontrado.&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span>
+            <span class="n">id_emprestimo</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ID do Empréstimo: &quot;</span><span class="p">)</span>
+            <span class="n">Emprestimo</span><span class="o">.</span><span class="n">deletar</span><span class="p">(</span><span class="n">id_emprestimo</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;4&quot;</span><span class="p">:</span>
+            <span class="n">Emprestimo</span><span class="o">.</span><span class="n">listar_todos</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;5&quot;</span><span class="p">:</span>
+            <span class="k">break</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Opção inválida! Tente novamente.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="gerar_relatorio_mensal">
+<a class="viewcode-back" href="../main.html#main.gerar_relatorio_mensal">[docs]</a>
+<span class="k">def</span> <span class="nf">gerar_relatorio_mensal</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Gera e exibe um relatório mensal com informações sobre livros, leitores e empréstimos registrados.</span>
+
+<span class="sd">    O relatório inclui as seguintes informações:</span>
+<span class="sd">    - Total de livros cadastrados no sistema.</span>
+<span class="sd">    - Total de leitores cadastrados no sistema.</span>
+<span class="sd">    - Total de empréstimos realizados no mês atual.</span>
+<span class="sd">    - Total de livros devolvidos no mês atual.</span>
+<span class="sd">    - Número de leitores únicos ativos no mês.</span>
+<span class="sd">    - Livro mais popular (título e ID) com base no número de empréstimos.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        Nenhum</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None: A função apenas exibe os dados processados no console.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Nenhum</span>
+
+<span class="sd">    Exemplo de saída:</span>
+<span class="sd">        Relatório Mensal:</span>
+<span class="sd">        Total de Livros Cadastrados: 10</span>
+<span class="sd">        Total de Leitores Cadastrados: 15</span>
+<span class="sd">        Total de Empréstimos no Mês: 7</span>
+<span class="sd">        Livros Devolvidos no Mês: 5</span>
+<span class="sd">        Leitores Ativos no Mês: 6</span>
+<span class="sd">        Livro Mais Popular no Mês: &quot;O Alquimista&quot; (ID: 3)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">hoje</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>  
+    <span class="n">inicio_mes</span> <span class="o">=</span> <span class="n">hoje</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
+
+    <span class="n">emprestimos_mes</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">e</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">Emprestimo</span><span class="o">.</span><span class="n">emprestimos</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">data_emprestimo</span> <span class="o">&gt;=</span> <span class="n">inicio_mes</span>  
+    <span class="p">]</span>
+    <span class="n">total_emprestimos</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">emprestimos_mes</span><span class="p">)</span>
+    <span class="n">livros_devolvidos</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">emprestimos_mes</span> <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">data_devolucao</span> <span class="o">&lt;=</span> <span class="n">hoje</span><span class="p">)</span>
+    <span class="n">leitores_ativos</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">numero_leitor</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">emprestimos_mes</span><span class="p">))</span>
+
+    <span class="n">livro_popular_id</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">livro_popular_titulo</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">emprestimos_mes</span><span class="p">:</span>
+        <span class="n">livros_contagem</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">emprestimos_mes</span><span class="p">:</span>
+            <span class="n">livros_contagem</span><span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">isbn_livro</span><span class="p">]</span> <span class="o">=</span> <span class="n">livros_contagem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">isbn_livro</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">livro_popular_id</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">livros_contagem</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">livros_contagem</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+        <span class="n">livro_popular</span> <span class="o">=</span> <span class="n">Livro</span><span class="o">.</span><span class="n">obter</span><span class="p">(</span><span class="n">livro_popular_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">livro_popular</span><span class="p">:</span>
+            <span class="n">livro_popular_titulo</span> <span class="o">=</span> <span class="n">livro_popular</span><span class="o">.</span><span class="n">titulo</span>
+
+    <span class="n">total_livros</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Livro</span><span class="o">.</span><span class="n">livros</span><span class="p">)</span>
+    <span class="n">total_leitores</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Leitor</span><span class="o">.</span><span class="n">leitores</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Relatório Mensal:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total de Livros Cadastrados: </span><span class="si">{</span><span class="n">total_livros</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total de Leitores Cadastrados: </span><span class="si">{</span><span class="n">total_leitores</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total de Empréstimos no Mês: </span><span class="si">{</span><span class="n">total_emprestimos</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Livros Devolvidos no Mês: </span><span class="si">{</span><span class="n">livros_devolvidos</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Leitores Ativos no Mês: </span><span class="si">{</span><span class="n">leitores_ativos</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">livro_popular_titulo</span> <span class="ow">and</span> <span class="n">livro_popular_id</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Livro Mais Popular no Mês: </span><span class="si">{</span><span class="n">livro_popular_titulo</span><span class="si">}</span><span class="s2"> (ID: </span><span class="si">{</span><span class="n">livro_popular_id</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Livro Mais Popular no Mês: Nenhum&quot;</span><span class="p">)</span></div>
+
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">menu_principal</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">src</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../emprestimo.html">emprestimo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../funcionario.html">funcionario module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../leitor.html">leitor module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../livro.html">livro module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main.html">main module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Author.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

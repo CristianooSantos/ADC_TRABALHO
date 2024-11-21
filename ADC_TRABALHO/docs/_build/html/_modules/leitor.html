@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>leitor &#8212; src  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for leitor</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Leitor</span>
+<span class="sd">======</span>
+
+<span class="sd">Este módulo contém a classe `Leitor`, que representa os leitores de uma biblioteca e oferece métodos para gerenciar</span>
+<span class="sd">seus dados, como salvar, atualizar, deletar e listar.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Leitor">
+<a class="viewcode-back" href="../leitor.html#leitor.Leitor">[docs]</a>
+<span class="k">class</span> <span class="nc">Leitor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Classe para gerenciar os leitores de uma biblioteca.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        leitores (dict): Dicionário estático contendo todos os leitores cadastrados.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">leitores</span> <span class="o">=</span> <span class="p">{}</span>  
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numero_leitor</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">morada</span><span class="p">,</span> <span class="n">telefone</span><span class="p">,</span> <span class="n">nif</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Inicializa um leitor com os dados fornecidos.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            numero_leitor (str): Número de identificação único do leitor.</span>
+<span class="sd">            nome (str): Nome do leitor.</span>
+<span class="sd">            morada (str): Endereço do leitor.</span>
+<span class="sd">            telefone (str): Número de telefone do leitor.</span>
+<span class="sd">            nif (str): Número de identificação fiscal do leitor.</span>
+<span class="sd">            email (str): Endereço de e-mail do leitor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numero_leitor</span> <span class="o">=</span> <span class="n">numero_leitor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">morada</span> <span class="o">=</span> <span class="n">morada</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">telefone</span> <span class="o">=</span> <span class="n">telefone</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nif</span> <span class="o">=</span> <span class="n">nif</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+
+<div class="viewcode-block" id="Leitor.salvar">
+<a class="viewcode-back" href="../leitor.html#leitor.Leitor.salvar">[docs]</a>
+    <span class="k">def</span> <span class="nf">salvar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Salva o leitor no dicionário estático `Leitor.leitores`.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            KeyError: Se o número do leitor já existir.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; leitor = Leitor(&quot;001&quot;, &quot;João Silva&quot;, &quot;Rua A&quot;, &quot;123456789&quot;, &quot;123456789&quot;, &quot;joao@email.com&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; leitor.salvar()</span>
+<span class="sd">            Leitor 001 adicionado com sucesso.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">numero_leitor</span> <span class="ow">in</span> <span class="n">Leitor</span><span class="o">.</span><span class="n">leitores</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;O número do leitor </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">numero_leitor</span><span class="si">}</span><span class="s2"> já existe.&quot;</span><span class="p">)</span>
+        <span class="n">Leitor</span><span class="o">.</span><span class="n">leitores</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">numero_leitor</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Leitor </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">numero_leitor</span><span class="si">}</span><span class="s2"> adicionado com sucesso.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Leitor.obter">
+<a class="viewcode-back" href="../leitor.html#leitor.Leitor.obter">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">obter</span><span class="p">(</span><span class="n">numero_leitor</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Busca um leitor pelo número.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            numero_leitor (str): Número do leitor a ser buscado.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Leitor: O leitor encontrado, ou None se não encontrado.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; Leitor.obter(&quot;001&quot;)</span>
+<span class="sd">            &lt;Leitor object&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Leitor</span><span class="o">.</span><span class="n">leitores</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">numero_leitor</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Leitor.atualizar">
+<a class="viewcode-back" href="../leitor.html#leitor.Leitor.atualizar">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">atualizar</span><span class="p">(</span><span class="n">numero_leitor</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Atualiza as informações de um leitor existente.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            numero_leitor (str): Número do leitor a ser atualizado.</span>
+<span class="sd">            **kwargs: Atributos do leitor que precisam ser atualizados.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            KeyError: Se o leitor não for encontrado.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; Leitor.atualizar(&quot;001&quot;, nome=&quot;João Pereira&quot;)</span>
+<span class="sd">            Leitor 001 atualizado com sucesso.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">leitor</span> <span class="o">=</span> <span class="n">Leitor</span><span class="o">.</span><span class="n">obter</span><span class="p">(</span><span class="n">numero_leitor</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">leitor</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Leitor </span><span class="si">{</span><span class="n">numero_leitor</span><span class="si">}</span><span class="s2"> não encontrado.&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">chave</span><span class="p">,</span> <span class="n">valor</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">leitor</span><span class="p">,</span> <span class="n">chave</span><span class="p">,</span> <span class="n">valor</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Leitor </span><span class="si">{</span><span class="n">numero_leitor</span><span class="si">}</span><span class="s2"> atualizado com sucesso.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Leitor.deletar">
+<a class="viewcode-back" href="../leitor.html#leitor.Leitor.deletar">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">deletar</span><span class="p">(</span><span class="n">numero_leitor</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove um leitor do sistema.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            numero_leitor (str): Número do leitor a ser removido.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            KeyError: Se o leitor não for encontrado.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; Leitor.deletar(&quot;001&quot;)</span>
+<span class="sd">            Leitor 001 deletado com sucesso.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">numero_leitor</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">Leitor</span><span class="o">.</span><span class="n">leitores</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Leitor </span><span class="si">{</span><span class="n">numero_leitor</span><span class="si">}</span><span class="s2"> não encontrado.&quot;</span><span class="p">)</span>
+        <span class="k">del</span> <span class="n">Leitor</span><span class="o">.</span><span class="n">leitores</span><span class="p">[</span><span class="n">numero_leitor</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Leitor </span><span class="si">{</span><span class="n">numero_leitor</span><span class="si">}</span><span class="s2"> deletado com sucesso.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Leitor.listar_todos">
+<a class="viewcode-back" href="../leitor.html#leitor.Leitor.listar_todos">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">listar_todos</span><span class="p">():</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Lista todos os leitores cadastrados.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; Leitor.listar_todos()</span>
+<span class="sd">            Número do Leitor: 001</span>
+<span class="sd">            Nome: João Silva</span>
+<span class="sd">            Morada: Rua A</span>
+<span class="sd">            Telefone: 123456789</span>
+<span class="sd">            NIF: 123456789</span>
+<span class="sd">            Email: joao@email.com</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">Leitor</span><span class="o">.</span><span class="n">leitores</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nenhum leitor cadastrado.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Lista de Leitores:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">leitor</span> <span class="ow">in</span> <span class="n">Leitor</span><span class="o">.</span><span class="n">leitores</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Número do Leitor: </span><span class="si">{</span><span class="n">leitor</span><span class="o">.</span><span class="n">numero_leitor</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nome: </span><span class="si">{</span><span class="n">leitor</span><span class="o">.</span><span class="n">nome</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Morada: </span><span class="si">{</span><span class="n">leitor</span><span class="o">.</span><span class="n">morada</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Telefone: </span><span class="si">{</span><span class="n">leitor</span><span class="o">.</span><span class="n">telefone</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;NIF: </span><span class="si">{</span><span class="n">leitor</span><span class="o">.</span><span class="n">nif</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Email: </span><span class="si">{</span><span class="n">leitor</span><span class="o">.</span><span class="n">email</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">src</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../emprestimo.html">emprestimo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../funcionario.html">funcionario module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../leitor.html">leitor module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../livro.html">livro module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main.html">main module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Author.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
