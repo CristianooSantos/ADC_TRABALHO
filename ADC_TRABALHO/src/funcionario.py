@@ -1,6 +1,9 @@
 import pickle
+from datetime import datetime
+
 class Funcionario:
-    funcionarios = {} 
+    funcionarios = {}  
+    atividades = [] 
 
     def __init__(self, id_funcionario, nome, morada, telefone, nif, email):
         self.id_funcionario = id_funcionario
@@ -9,9 +12,11 @@ class Funcionario:
         self.telefone = telefone
         self.nif = nif
         self.email = email
+        self.funcoes = [] 
 
     def salvar(self):
         Funcionario.funcionarios[self.id_funcionario] = self
+        Funcionario.registar_atividade(f"Funcionário {self.id_funcionario} ({self.nome}) adicionado.")
         print(f"Funcionário {self.id_funcionario} adicionado com sucesso.")
 
     @staticmethod
@@ -24,6 +29,7 @@ class Funcionario:
         if funcionario:
             for chave, valor in kwargs.items():
                 setattr(funcionario, chave, valor)
+            Funcionario.registar_atividade(f"Funcionário {id_funcionario} atualizado com novos dados: {kwargs}.")
             print(f"Funcionário {id_funcionario} atualizado com sucesso.")
         else:
             print("Funcionário não encontrado.")
@@ -32,6 +38,7 @@ class Funcionario:
     def deletar(id_funcionario):
         if id_funcionario in Funcionario.funcionarios:
             del Funcionario.funcionarios[id_funcionario]
+            Funcionario.registar_atividade(f"Funcionário {id_funcionario} removido.")
             print(f"Funcionário {id_funcionario} deletado com sucesso.")
         else:
             print("Funcionário não encontrado.")
@@ -47,6 +54,7 @@ class Funcionario:
                 print(f"Telefone: {funcionario.telefone}")
                 print(f"NIF: {funcionario.nif}")
                 print(f"Email: {funcionario.email}")
+                print(f"Funções: {', '.join(funcionario.funcoes) if funcionario.funcoes else 'Nenhuma'}")
                 print("-" * 30) 
 
     @staticmethod
@@ -63,3 +71,27 @@ class Funcionario:
                 print(f"Funcionários carregados de {arquivo}.")
         except FileNotFoundError:
             print("Arquivo não encontrado.")
+
+    @staticmethod
+    def atribuir_funcoes(id_funcionario, *funcoes):
+        funcionario = Funcionario.obter(id_funcionario)
+        if funcionario:
+            funcionario.funcoes.extend(funcoes)
+            Funcionario.registar_atividade(f"Funções {', '.join(funcoes)} atribuídas ao funcionário {id_funcionario}.")
+            print(f"Funções atribuídas com sucesso ao funcionário {id_funcionario}.")
+        else:
+            print("Funcionário não encontrado.")
+
+    @staticmethod
+    def gerar_relatorio_atividades():
+        if Funcionario.atividades:
+            print("\nRelatório de Atividades:")
+            for atividade in Funcionario.atividades:
+                print(atividade)
+        else:
+            print("Nenhuma atividade registada.")
+
+    @staticmethod
+    def registar_atividade(descricao):
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        Funcionario.atividades.append(f"[{timestamp}] {descricao}")
