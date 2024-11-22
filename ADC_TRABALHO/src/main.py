@@ -123,7 +123,12 @@ def menu_livros():
         print("3. Atualizar Livro")
         print("4. Deletar Livro")
         print("5. Listar Todos os Livros")
-        print("6. Voltar ao Menu Principal")
+        print("6. Filtrar Livros por Categoria")
+        print("7. Verificar Disponibilidade de um Livro")
+        print("8. Emprestar Livro")
+        print("9. Devolver Livro")
+        print("10. Gerar Relatório de Livros Mais Emprestados")
+        print("11. Voltar ao Menu Principal")
 
         opcao = input("Escolha uma opção: ")
 
@@ -167,10 +172,30 @@ def menu_livros():
             Livro.listar_todos()
 
         elif opcao == "6":
-            break
+            categoria = input("Digite a Categoria: ")
+            Livro.filtrar_por_categoria(categoria)
 
+        elif opcao == "7":
+            id_livro = input("ID do Livro: ")
+            Livro.verificar_disponibilidade(id_livro)
+
+        elif opcao == "8":
+            id_livro = input("ID do Livro: ")
+            Livro.emprestar(id_livro)
+
+        elif opcao == "9":
+            id_livro = input("ID do Livro: ")
+            Livro.devolver(id_livro)
+
+        elif opcao == "10":
+            Livro.gerar_relatorio_mais_emprestados()
+
+        elif opcao == "11":
+            break
+        
         else:
             print("Opção inválida! Tente novamente.")
+
 
 def menu_funcionarios():
     while True:
