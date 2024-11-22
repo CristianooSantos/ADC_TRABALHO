@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js" lang="pt" data-content_root="./">
+<html class="no-js" lang="en" data-content_root="./">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Índice" href="genindex.html" /><link rel="search" title="Pesquisar" href="search.html" /><link rel="next" title="leitor module" href="leitor.html" /><link rel="prev" title="emprestimo module" href="emprestimo.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="leitor module" href="leitor.html" /><link rel="prev" title="emprestimo module" href="emprestimo.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>funcionario module - Documentação BIBLIOTECA_ADC</title>
+        <title>funcionario module - src documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
@@ -166,7 +166,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">Documentação BIBLIOTECA_ADC </div></a>
+      <a href="index.html"><div class="brand">src  documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -190,10 +190,10 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">Documentação BIBLIOTECA_ADC </span>
+  <span class="sidebar-brand-text">src  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder="Pesquisar" name="q" aria-label="Pesquisar">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -249,16 +249,31 @@
 <span id="funcionario-module"></span><h1>funcionario module<a class="headerlink" href="#module-funcionario" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="funcionario.Funcionario">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">funcionario.</span></span><span class="sig-name descname"><span class="pre">Funcionario</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_funcionario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nome</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">morada</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">telefone</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nif</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#funcionario.Funcionario" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">funcionario.</span></span><span class="sig-name descname"><span class="pre">Funcionario</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_funcionario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nome</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">morada</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">telefone</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nif</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcionario.Funcionario" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="funcionario.Funcionario.atividades">
+<span class="sig-name descname"><span class="pre">atividades</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#funcionario.Funcionario.atividades" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="funcionario.Funcionario.atribuir_funcoes">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">atribuir_funcoes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_funcionario</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">funcoes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario.atribuir_funcoes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcionario.Funcionario.atribuir_funcoes" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="funcionario.Funcionario.atualizar">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">atualizar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_funcionario</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario.atualizar"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#funcionario.Funcionario.atualizar" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">atualizar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_funcionario</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario.atualizar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcionario.Funcionario.atualizar" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="funcionario.Funcionario.carregar_de_arquivo">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">carregar_de_arquivo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arquivo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario.carregar_de_arquivo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcionario.Funcionario.carregar_de_arquivo" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="funcionario.Funcionario.deletar">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deletar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_funcionario</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario.deletar"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#funcionario.Funcionario.deletar" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deletar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_funcionario</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario.deletar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcionario.Funcionario.deletar" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -267,18 +282,33 @@
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="funcionario.Funcionario.gerar_relatorio_atividades">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gerar_relatorio_atividades</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario.gerar_relatorio_atividades"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcionario.Funcionario.gerar_relatorio_atividades" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="funcionario.Funcionario.listar_todos">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">listar_todos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario.listar_todos"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#funcionario.Funcionario.listar_todos" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">listar_todos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario.listar_todos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcionario.Funcionario.listar_todos" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="funcionario.Funcionario.obter">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">obter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_funcionario</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario.obter"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#funcionario.Funcionario.obter" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">obter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_funcionario</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario.obter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcionario.Funcionario.obter" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="funcionario.Funcionario.registar_atividade">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">registar_atividade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">descricao</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario.registar_atividade"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcionario.Funcionario.registar_atividade" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="funcionario.Funcionario.salvar">
-<span class="sig-name descname"><span class="pre">salvar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario.salvar"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#funcionario.Funcionario.salvar" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">salvar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario.salvar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcionario.Funcionario.salvar" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="funcionario.Funcionario.salvar_em_arquivo">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">salvar_em_arquivo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arquivo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/funcionario.html#Funcionario.salvar_em_arquivo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#funcionario.Funcionario.salvar_em_arquivo" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -314,7 +344,7 @@
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2024, CRISTIANO,FRANCISCO,AFONSO,HENRIQUE
+                Copyright &#169; 2024, Author
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -342,12 +372,18 @@
             <ul>
 <li><a class="reference internal" href="#">funcionario module</a><ul>
 <li><a class="reference internal" href="#funcionario.Funcionario"><code class="docutils literal notranslate"><span class="pre">Funcionario</span></code></a><ul>
+<li><a class="reference internal" href="#funcionario.Funcionario.atividades"><code class="docutils literal notranslate"><span class="pre">Funcionario.atividades</span></code></a></li>
+<li><a class="reference internal" href="#funcionario.Funcionario.atribuir_funcoes"><code class="docutils literal notranslate"><span class="pre">Funcionario.atribuir_funcoes()</span></code></a></li>
 <li><a class="reference internal" href="#funcionario.Funcionario.atualizar"><code class="docutils literal notranslate"><span class="pre">Funcionario.atualizar()</span></code></a></li>
+<li><a class="reference internal" href="#funcionario.Funcionario.carregar_de_arquivo"><code class="docutils literal notranslate"><span class="pre">Funcionario.carregar_de_arquivo()</span></code></a></li>
 <li><a class="reference internal" href="#funcionario.Funcionario.deletar"><code class="docutils literal notranslate"><span class="pre">Funcionario.deletar()</span></code></a></li>
 <li><a class="reference internal" href="#funcionario.Funcionario.funcionarios"><code class="docutils literal notranslate"><span class="pre">Funcionario.funcionarios</span></code></a></li>
+<li><a class="reference internal" href="#funcionario.Funcionario.gerar_relatorio_atividades"><code class="docutils literal notranslate"><span class="pre">Funcionario.gerar_relatorio_atividades()</span></code></a></li>
 <li><a class="reference internal" href="#funcionario.Funcionario.listar_todos"><code class="docutils literal notranslate"><span class="pre">Funcionario.listar_todos()</span></code></a></li>
 <li><a class="reference internal" href="#funcionario.Funcionario.obter"><code class="docutils literal notranslate"><span class="pre">Funcionario.obter()</span></code></a></li>
+<li><a class="reference internal" href="#funcionario.Funcionario.registar_atividade"><code class="docutils literal notranslate"><span class="pre">Funcionario.registar_atividade()</span></code></a></li>
 <li><a class="reference internal" href="#funcionario.Funcionario.salvar"><code class="docutils literal notranslate"><span class="pre">Funcionario.salvar()</span></code></a></li>
+<li><a class="reference internal" href="#funcionario.Funcionario.salvar_em_arquivo"><code class="docutils literal notranslate"><span class="pre">Funcionario.salvar_em_arquivo()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -361,10 +397,9 @@
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=103ffe9a"></script>
+</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>
-    <script src="_static/translations.js?v=beaedd51"></script>
     </body>
 </html>

@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js" lang="pt" data-content_root="./">
+<html class="no-js" lang="en" data-content_root="./">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Índice" href="genindex.html" /><link rel="search" title="Pesquisar" href="search.html" /><link rel="next" title="funcionario module" href="funcionario.html" /><link rel="prev" title="src documentation" href="index.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="funcionario module" href="funcionario.html" /><link rel="prev" title="src documentation" href="index.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>emprestimo module - Documentação BIBLIOTECA_ADC</title>
+        <title>emprestimo module - src documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
@@ -166,7 +166,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">Documentação BIBLIOTECA_ADC </div></a>
+      <a href="index.html"><div class="brand">src  documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -190,10 +190,10 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">Documentação BIBLIOTECA_ADC </span>
+  <span class="sidebar-brand-text">src  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder="Pesquisar" name="q" aria-label="Pesquisar">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -249,8 +249,13 @@
 <span id="emprestimo-module"></span><h1>emprestimo module<a class="headerlink" href="#module-emprestimo" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="emprestimo.Emprestimo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">emprestimo.</span></span><span class="sig-name descname"><span class="pre">Emprestimo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isbn_livro</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numero_leitor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_funcionario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_emprestimo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_devolucao</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">emprestimo.</span></span><span class="sig-name descname"><span class="pre">Emprestimo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isbn_livro</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numero_leitor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_funcionario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_emprestimo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_devolucao</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="emprestimo.Emprestimo.carregar_de_arquivo">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">carregar_de_arquivo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arquivo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.carregar_de_arquivo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.carregar_de_arquivo" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="emprestimo.Emprestimo.contador_emprestimos">
 <span class="sig-name descname"><span class="pre">contador_emprestimos</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#emprestimo.Emprestimo.contador_emprestimos" title="Link to this definition">¶</a></dt>
@@ -258,7 +263,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="emprestimo.Emprestimo.deletar">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deletar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_emprestimo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.deletar"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.deletar" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deletar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_emprestimo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.deletar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.deletar" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -268,17 +273,22 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="emprestimo.Emprestimo.listar_todos">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">listar_todos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.listar_todos"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.listar_todos" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">listar_todos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.listar_todos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.listar_todos" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="emprestimo.Emprestimo.obter">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">obter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_emprestimo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.obter"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.obter" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">obter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_emprestimo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.obter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.obter" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="emprestimo.Emprestimo.salvar">
-<span class="sig-name descname"><span class="pre">salvar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.salvar"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.salvar" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">salvar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.salvar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.salvar" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="emprestimo.Emprestimo.salvar_em_arquivo">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">salvar_em_arquivo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arquivo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.salvar_em_arquivo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.salvar_em_arquivo" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -314,7 +324,7 @@
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2024, CRISTIANO,FRANCISCO,AFONSO,HENRIQUE
+                Copyright &#169; 2024, Author
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -342,12 +352,14 @@
             <ul>
 <li><a class="reference internal" href="#">emprestimo module</a><ul>
 <li><a class="reference internal" href="#emprestimo.Emprestimo"><code class="docutils literal notranslate"><span class="pre">Emprestimo</span></code></a><ul>
+<li><a class="reference internal" href="#emprestimo.Emprestimo.carregar_de_arquivo"><code class="docutils literal notranslate"><span class="pre">Emprestimo.carregar_de_arquivo()</span></code></a></li>
 <li><a class="reference internal" href="#emprestimo.Emprestimo.contador_emprestimos"><code class="docutils literal notranslate"><span class="pre">Emprestimo.contador_emprestimos</span></code></a></li>
 <li><a class="reference internal" href="#emprestimo.Emprestimo.deletar"><code class="docutils literal notranslate"><span class="pre">Emprestimo.deletar()</span></code></a></li>
 <li><a class="reference internal" href="#emprestimo.Emprestimo.emprestimos"><code class="docutils literal notranslate"><span class="pre">Emprestimo.emprestimos</span></code></a></li>
 <li><a class="reference internal" href="#emprestimo.Emprestimo.listar_todos"><code class="docutils literal notranslate"><span class="pre">Emprestimo.listar_todos()</span></code></a></li>
 <li><a class="reference internal" href="#emprestimo.Emprestimo.obter"><code class="docutils literal notranslate"><span class="pre">Emprestimo.obter()</span></code></a></li>
 <li><a class="reference internal" href="#emprestimo.Emprestimo.salvar"><code class="docutils literal notranslate"><span class="pre">Emprestimo.salvar()</span></code></a></li>
+<li><a class="reference internal" href="#emprestimo.Emprestimo.salvar_em_arquivo"><code class="docutils literal notranslate"><span class="pre">Emprestimo.salvar_em_arquivo()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -361,10 +373,9 @@
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=103ffe9a"></script>
+</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>
-    <script src="_static/translations.js?v=beaedd51"></script>
     </body>
 </html>

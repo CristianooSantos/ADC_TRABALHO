@@ -6,20 +6,20 @@ from datetime import datetime
 
 def criar_dados_teste():
     """Popula as entidades com dados fictícios para testes."""
-    # Adicionar livros
+   
     Livro("1", "O Senhor dos Anéis", "J.R.R. Tolkien", "Fantasia", "978-0-1234-5678-9", 1954).salvar()
     Livro("2", "1984", "George Orwell", "Distopia", "978-0-9876-5432-1", 1949).salvar()
     Livro("3", "O Pequeno Príncipe", "Antoine de Saint-Exupéry", "Ficção", "978-0-1111-2222-3", 1943).salvar()
 
-    # Adicionar leitores
+    
     Leitor("1", "João Silva", "Rua A, 123", "912345678", "123456789", "joao@email.com").salvar()
     Leitor("2", "Maria Oliveira", "Rua B, 456", "987654321", "987654321", "maria@email.com").salvar()
 
-    # Adicionar funcionários
+   
     Funcionario("1", "Carlos Pereira", "Rua C, 789", "912112233", "654987321", "carlos@email.com").salvar()
     Funcionario("2", "Ana Santos", "Rua D, 321", "987112233", "456789123", "ana@email.com").salvar()
 
-    # Adicionar empréstimos
+    
     Emprestimo("978-0-1234-5678-9", "1", "1", data_emprestimo=datetime(2024, 11, 1).date()).salvar()
     Emprestimo("978-0-9876-5432-1", "2", "2", data_emprestimo=datetime(2024, 11, 5).date()).salvar()
     print("Dados de teste criados com sucesso!")
