@@ -4,6 +4,26 @@ from emprestimo import Emprestimo
 from leitor import Leitor
 from datetime import datetime
 
+def criar_dados_teste():
+    """Popula as entidades com dados fictícios para testes."""
+    # Adicionar livros
+    Livro("1", "O Senhor dos Anéis", "J.R.R. Tolkien", "Fantasia", "978-0-1234-5678-9", 1954).salvar()
+    Livro("2", "1984", "George Orwell", "Distopia", "978-0-9876-5432-1", 1949).salvar()
+    Livro("3", "O Pequeno Príncipe", "Antoine de Saint-Exupéry", "Ficção", "978-0-1111-2222-3", 1943).salvar()
+
+    # Adicionar leitores
+    Leitor("1", "João Silva", "Rua A, 123", "912345678", "123456789", "joao@email.com").salvar()
+    Leitor("2", "Maria Oliveira", "Rua B, 456", "987654321", "987654321", "maria@email.com").salvar()
+
+    # Adicionar funcionários
+    Funcionario("1", "Carlos Pereira", "Rua C, 789", "912112233", "654987321", "carlos@email.com").salvar()
+    Funcionario("2", "Ana Santos", "Rua D, 321", "987112233", "456789123", "ana@email.com").salvar()
+
+    # Adicionar empréstimos
+    Emprestimo("978-0-1234-5678-9", "1", "1", data_emprestimo=datetime(2024, 11, 1).date()).salvar()
+    Emprestimo("978-0-9876-5432-1", "2", "2", data_emprestimo=datetime(2024, 11, 5).date()).salvar()
+    print("Dados de teste criados com sucesso!")
+
 def menu_principal():
     while True:
         print("\nSistema de Gestão da Biblioteca")
@@ -14,7 +34,8 @@ def menu_principal():
         print("5. Gerar Relatório Mensal")
         print("6. Carregar Dados de Arquivo")
         print("7. Salvar Dados em Arquivo")
-        print("8. Sair")
+        print("8. Criar Dados de Teste")
+        print("9. Sair")
 
         opcao = input("Escolha uma opção: ")
 
@@ -33,6 +54,8 @@ def menu_principal():
         elif opcao == "7":
             salvar_dados()
         elif opcao == "8":
+            criar_dados_teste()
+        elif opcao == "9":
             print("Saindo do sistema...")
             break
         else:
@@ -123,12 +146,7 @@ def menu_livros():
         print("3. Atualizar Livro")
         print("4. Deletar Livro")
         print("5. Listar Todos os Livros")
-        print("6. Filtrar Livros por Categoria")
-        print("7. Verificar Disponibilidade de um Livro")
-        print("8. Emprestar Livro")
-        print("9. Devolver Livro")
-        print("10. Gerar Relatório de Livros Mais Emprestados")
-        print("11. Voltar ao Menu Principal")
+        print("6. Voltar ao Menu Principal")
 
         opcao = input("Escolha uma opção: ")
 
@@ -172,30 +190,10 @@ def menu_livros():
             Livro.listar_todos()
 
         elif opcao == "6":
-            categoria = input("Digite a Categoria: ")
-            Livro.filtrar_por_categoria(categoria)
-
-        elif opcao == "7":
-            id_livro = input("ID do Livro: ")
-            Livro.verificar_disponibilidade(id_livro)
-
-        elif opcao == "8":
-            id_livro = input("ID do Livro: ")
-            Livro.emprestar(id_livro)
-
-        elif opcao == "9":
-            id_livro = input("ID do Livro: ")
-            Livro.devolver(id_livro)
-
-        elif opcao == "10":
-            Livro.gerar_relatorio_mais_emprestados()
-
-        elif opcao == "11":
             break
-        
+
         else:
             print("Opção inválida! Tente novamente.")
-
 
 def menu_funcionarios():
     while True:
@@ -205,9 +203,7 @@ def menu_funcionarios():
         print("3. Atualizar Funcionário")
         print("4. Deletar Funcionário")
         print("5. Listar Todos os Funcionários")
-        print("6. Atribuir Funções a Funcionário")
-        print("7. Gerar Relatório de Atividades")
-        print("8. Voltar ao Menu Principal")
+        print("6. Voltar ao Menu Principal")
 
         opcao = input("Escolha uma opção: ")
 
@@ -226,13 +222,7 @@ def menu_funcionarios():
             funcionario = Funcionario.obter(id_funcionario)
             if funcionario:
                 print("\nInformações do Funcionário:")
-                print(f"ID: {funcionario.id_funcionario}")
-                print(f"Nome: {funcionario.nome}")
-                print(f"Morada: {funcionario.morada}")
-                print(f"Telefone: {funcionario.telefone}")
-                print(f"NIF: {funcionario.nif}")
-                print(f"Email: {funcionario.email}")
-                print(f"Funções: {', '.join(funcionario.funcoes) if funcionario.funcoes else 'Nenhuma'}")
+                print(vars(funcionario))
             else:
                 print("Funcionário não encontrado.")
 
@@ -257,19 +247,6 @@ def menu_funcionarios():
             Funcionario.listar_todos()
 
         elif opcao == "6":
-            id_funcionario = input("ID do Funcionário: ")
-            funcionario = Funcionario.obter(id_funcionario)
-            if funcionario:
-                funcoes = input("Insira as funções separadas por vírgulas: ").split(",")
-                funcoes = [funcao.strip() for funcao in funcoes]
-                Funcionario.atribuir_funcoes(id_funcionario, *funcoes)
-            else:
-                print("Funcionário não encontrado.")
-
-        elif opcao == "7":
-            Funcionario.gerar_relatorio_atividades()
-
-        elif opcao == "8":
             break
 
         else:
