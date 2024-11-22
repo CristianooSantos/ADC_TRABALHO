@@ -180,7 +180,9 @@ def menu_funcionarios():
         print("3. Atualizar Funcionário")
         print("4. Deletar Funcionário")
         print("5. Listar Todos os Funcionários")
-        print("6. Voltar ao Menu Principal")
+        print("6. Atribuir Funções a Funcionário")
+        print("7. Gerar Relatório de Atividades")
+        print("8. Voltar ao Menu Principal")
 
         opcao = input("Escolha uma opção: ")
 
@@ -199,7 +201,13 @@ def menu_funcionarios():
             funcionario = Funcionario.obter(id_funcionario)
             if funcionario:
                 print("\nInformações do Funcionário:")
-                print(vars(funcionario))
+                print(f"ID: {funcionario.id_funcionario}")
+                print(f"Nome: {funcionario.nome}")
+                print(f"Morada: {funcionario.morada}")
+                print(f"Telefone: {funcionario.telefone}")
+                print(f"NIF: {funcionario.nif}")
+                print(f"Email: {funcionario.email}")
+                print(f"Funções: {', '.join(funcionario.funcoes) if funcionario.funcoes else 'Nenhuma'}")
             else:
                 print("Funcionário não encontrado.")
 
@@ -224,6 +232,19 @@ def menu_funcionarios():
             Funcionario.listar_todos()
 
         elif opcao == "6":
+            id_funcionario = input("ID do Funcionário: ")
+            funcionario = Funcionario.obter(id_funcionario)
+            if funcionario:
+                funcoes = input("Insira as funções separadas por vírgulas: ").split(",")
+                funcoes = [funcao.strip() for funcao in funcoes]
+                Funcionario.atribuir_funcoes(id_funcionario, *funcoes)
+            else:
+                print("Funcionário não encontrado.")
+
+        elif opcao == "7":
+            Funcionario.gerar_relatorio_atividades()
+
+        elif opcao == "8":
             break
 
         else:
