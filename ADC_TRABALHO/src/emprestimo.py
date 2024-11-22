@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-
+import pickle
 class Emprestimo:
     emprestimos = {}  
     contador_emprestimos = 1
@@ -44,3 +44,18 @@ class Emprestimo:
                 print("-" * 30)
         else:
             print("Nenhum empréstimo cadastrado.")
+
+    @staticmethod
+    def salvar_em_arquivo(arquivo):
+        with open(arquivo, 'wb') as f:
+            pickle.dump(Emprestimo.emprestimos, f)
+            print(f"Empréstimos salvos em {arquivo}.")
+
+    @staticmethod
+    def carregar_de_arquivo(arquivo):
+        try:
+            with open(arquivo, 'rb') as f:
+                Emprestimo.emprestimos = pickle.load(f)
+                print(f"Empréstimos carregados de {arquivo}.")
+        except FileNotFoundError:
+            print("Arquivo não encontrado.")

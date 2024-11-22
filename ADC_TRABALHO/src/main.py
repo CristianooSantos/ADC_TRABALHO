@@ -12,7 +12,9 @@ def menu_principal():
         print("3. Gerir Funcionários")
         print("4. Gerir Empréstimos")
         print("5. Gerar Relatório Mensal")
-        print("6. Sair")
+        print("6. Carregar Dados de Arquivo")
+        print("7. Salvar Dados em Arquivo")
+        print("8. Sair")
 
         opcao = input("Escolha uma opção: ")
 
@@ -27,10 +29,34 @@ def menu_principal():
         elif opcao == "5":
             gerar_relatorio_mensal()
         elif opcao == "6":
+            carregar_dados()
+        elif opcao == "7":
+            salvar_dados()
+        elif opcao == "8":
             print("Saindo do sistema...")
             break
         else:
             print("Opção inválida! Tente novamente.")
+
+def carregar_dados():
+    try:
+        Livro.carregar_de_arquivo("livros.pkl")
+        Leitor.carregar_de_arquivo("leitores.pkl")
+        Funcionario.carregar_de_arquivo("funcionarios.pkl")
+        Emprestimo.carregar_de_arquivo("emprestimos.pkl")
+        print("Dados carregados com sucesso!")
+    except Exception as e:
+        print(f"Erro ao carregar os dados: {e}")
+
+def salvar_dados():
+    try:
+        Livro.salvar_em_arquivo("livros.pkl")
+        Leitor.salvar_em_arquivo("leitores.pkl")
+        Funcionario.salvar_em_arquivo("funcionarios.pkl")
+        Emprestimo.salvar_em_arquivo("emprestimos.pkl")
+        print("Dados salvos com sucesso!")
+    except Exception as e:
+        print(f"Erro ao salvar os dados: {e}")
 
 def menu_leitores():
     while True:

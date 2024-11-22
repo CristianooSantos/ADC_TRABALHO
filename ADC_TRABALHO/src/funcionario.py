@@ -1,3 +1,4 @@
+import pickle
 class Funcionario:
     funcionarios = {} 
 
@@ -47,3 +48,18 @@ class Funcionario:
                 print(f"NIF: {funcionario.nif}")
                 print(f"Email: {funcionario.email}")
                 print("-" * 30) 
+
+    @staticmethod
+    def salvar_em_arquivo(arquivo):
+        with open(arquivo, 'wb') as f:
+            pickle.dump(Funcionario.funcionarios, f)
+            print(f"Funcionários salvos em {arquivo}.")
+
+    @staticmethod
+    def carregar_de_arquivo(arquivo):
+        try:
+            with open(arquivo, 'rb') as f:
+                Funcionario.funcionarios = pickle.load(f)
+                print(f"Funcionários carregados de {arquivo}.")
+        except FileNotFoundError:
+            print("Arquivo não encontrado.")
