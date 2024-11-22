@@ -1,30 +1,5 @@
-class Livro:
-    """
-    Classe para gerenciar livros em uma biblioteca.
-
-    Attributes:
-        livros (dict): Um dicionário estático para armazenar instâncias de livros, onde a chave é o ID do livro.
-
-    Methods:
-        __init__(id_livro, titulo, autor, categoria, isbn, ano_publicacao):
-            Inicializa uma nova instância da classe Livro.
-
-        salvar():
-            Salva o livro na coleção estática `livros`.
-
-        obter(id_livro):
-            Obtém uma instância de Livro com base no ID fornecido.
-
-        atualizar(id_livro, **kwargs):
-            Atualiza os atributos de um livro existente.
-
-        deletar(id_livro):
-            Remove um livro da coleção com base no ID fornecido.
-
-        listar_todos():
-            Lista todos os livros cadastrados.
-    """
-
+import pickle  
+class Livro:  
     livros = {}
 
     def __init__(self, id_livro, titulo, autor, categoria, isbn, ano_publicacao):
@@ -135,3 +110,18 @@ class Livro:
                 print("-" * 30)
         else:
             print("Nenhum livro cadastrado.")
+
+    @staticmethod
+    def salvar_em_arquivo(arquivo):
+        with open(arquivo, 'wb') as f:
+            pickle.dump(Livro.livros, f)
+            print(f"Livros salvos em {arquivo}.")
+
+    @staticmethod
+    def carregar_de_arquivo(arquivo):
+        try:
+            with open(arquivo, 'rb') as f:
+                Livro.livros = pickle.load(f)
+                print(f"Livros carregados de {arquivo}.")
+        except FileNotFoundError:
+            print("Arquivo não encontrado.")

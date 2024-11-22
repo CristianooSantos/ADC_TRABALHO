@@ -6,7 +6,7 @@ Este módulo contém a classe `Leitor`, que representa os leitores de uma biblio
 seus dados, como salvar, atualizar, deletar e listar.
 
 """
-
+import pickle
 class Leitor:
     """Classe para gerenciar os leitores de uma biblioteca.
 
@@ -131,3 +131,18 @@ class Leitor:
             print(f"NIF: {leitor.nif}")
             print(f"Email: {leitor.email}")
             print("-" * 30)
+
+    @staticmethod
+    def salvar_em_arquivo(arquivo):
+        with open(arquivo, 'wb') as f:
+            pickle.dump(Leitor.leitores, f)
+            print(f"Leitores salvos em {arquivo}.")
+
+    @staticmethod
+    def carregar_de_arquivo(arquivo):
+        try:
+            with open(arquivo, 'rb') as f:
+                Leitor.leitores = pickle.load(f)
+                print(f"Leitores carregados de {arquivo}.")
+        except FileNotFoundError:
+            print("Arquivo não encontrado.")
