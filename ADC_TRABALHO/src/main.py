@@ -255,14 +255,16 @@ def gerar_relatorio_mensal():
     - Número de leitores únicos ativos no mês.
     - Livro mais popular (título e ID) com base no número de empréstimos.
 
+    O relatório é gerado com base no mês atual e considera os empréstimos realizados a partir do primeiro dia do mês.
+
     Args:
         Nenhum
 
     Returns:
-        None: A função apenas exibe os dados processados no console.
+        None: A função apenas exibe os dados processados no console, sem retornar valores.
 
-    Raises:
-        Nenhum
+    Exceções:
+        Nenhuma: Esta função não levanta exceções.
 
     Exemplo de saída:
         Relatório Mensal:
@@ -273,24 +275,35 @@ def gerar_relatorio_mensal():
         Leitores Ativos no Mês: 6
         Livro Mais Popular no Mês: "O Alquimista" (ID: 3)
     """
+   
     hoje = datetime.now().date()  
+    
     inicio_mes = hoje.replace(day=1)  
 
     emprestimos_mes = [
         e for e in Emprestimo.emprestimos.values()
         if e.data_emprestimo >= inicio_mes  
     ]
+    
+
     total_emprestimos = len(emprestimos_mes)
+    
+
     livros_devolvidos = sum(1 for e in emprestimos_mes if e.data_devolucao <= hoje)
+    
+
     leitores_ativos = len(set(e.numero_leitor for e in emprestimos_mes))
+
 
     livro_popular_id = None
     livro_popular_titulo = None
+
 
     if emprestimos_mes:
         livros_contagem = {}
         for e in emprestimos_mes:
             livros_contagem[e.isbn_livro] = livros_contagem.get(e.isbn_livro, 0) + 1
+
         livro_popular_id = max(livros_contagem, key=livros_contagem.get)
         livro_popular = Livro.obter(livro_popular_id)
         if livro_popular:
@@ -299,16 +312,19 @@ def gerar_relatorio_mensal():
     total_livros = len(Livro.livros)
     total_leitores = len(Leitor.leitores)
 
+
     print("\nRelatório Mensal:")
     print(f"Total de Livros Cadastrados: {total_livros}")
     print(f"Total de Leitores Cadastrados: {total_leitores}")
     print(f"Total de Empréstimos no Mês: {total_emprestimos}")
     print(f"Livros Devolvidos no Mês: {livros_devolvidos}")
     print(f"Leitores Ativos no Mês: {leitores_ativos}")
+    
     if livro_popular_titulo and livro_popular_id:
         print(f"Livro Mais Popular no Mês: {livro_popular_titulo} (ID: {livro_popular_id})")
     else:
         print("Livro Mais Popular no Mês: Nenhum")
+
 
 
 
