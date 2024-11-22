@@ -267,8 +267,33 @@ def menu_emprestimos():
             isbn_livro = input("ISBN do Livro: ")
             numero_leitor = input("Número do Leitor: ")
             id_funcionario = input("ID do Funcionário: ")
+
+            erro = False
+            erros = []
+
+            livro = Livro.obter(isbn_livro)
+            if not livro:
+                erros.append("Erro: Livro não encontrado no sistema.")
+                erro = True
+
+            leitor = Leitor.obter(numero_leitor)
+            if not leitor:
+                erros.append("Erro: Leitor não encontrado no sistema.")
+                erro = True
+
+            funcionario = Funcionario.obter(id_funcionario)
+            if not funcionario:
+                erros.append("Erro: Funcionário não encontrado no sistema.")
+                erro = True
+
+            if erro:
+                for e in erros:
+                    print(e)
+                continue
+
             emprestimo = Emprestimo(isbn_livro, numero_leitor, id_funcionario)
             emprestimo.salvar()
+            print("Empréstimo criado com sucesso!")
 
         elif opcao == "2":
             id_emprestimo = input("ID do Empréstimo: ")
@@ -291,6 +316,8 @@ def menu_emprestimos():
 
         else:
             print("Opção inválida! Tente novamente.")
+
+
 
 def gerar_relatorio_mensal():
     """
