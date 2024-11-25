@@ -146,7 +146,9 @@ def menu_livros():
         print("3. Atualizar Livro")
         print("4. Deletar Livro")
         print("5. Listar Todos os Livros")
-        print("6. Voltar ao Menu Principal")
+        print("6. Procurar Livro por Título, Autor ou ISBN")
+        print("7. Verificar Disponibilidade de um Livro")
+        print("8. Voltar ao Menu Principal")
 
         opcao = input("Escolha uma opção: ")
 
@@ -157,7 +159,7 @@ def menu_livros():
             categoria = input("Categoria: ")
             isbn = input("ISBN: ")
             ano_publicacao = input("Ano de Publicação: ")
-            livro = Livro(id_livro, titulo, autor, categoria, isbn, ano_publicacao)
+            livro = Livro(id_livro, titulo, autor, categoria, isbn, int(ano_publicacao))
             livro.salvar()
 
         elif opcao == "2":
@@ -165,7 +167,13 @@ def menu_livros():
             livro = Livro.obter(id_livro)
             if livro:
                 print("\nInformações do Livro:")
-                print(vars(livro))
+                print(f"ID: {livro.id_livro}")
+                print(f"Título: {livro.titulo}")
+                print(f"Autor: {livro.autor}")
+                print(f"Categoria: {livro.categoria}")
+                print(f"ISBN: {livro.isbn}")
+                print(f"Ano de Publicação: {livro.ano_publicacao}")
+                print(f"Disponível: {'Sim' if livro.disponivel else 'Não'}")
             else:
                 print("Livro não encontrado.")
 
@@ -178,7 +186,7 @@ def menu_livros():
                 categoria = input(f"Nova Categoria ({livro.categoria}): ") or livro.categoria
                 isbn = input(f"Novo ISBN ({livro.isbn}): ") or livro.isbn
                 ano_publicacao = input(f"Novo Ano de Publicação ({livro.ano_publicacao}): ") or livro.ano_publicacao
-                Livro.atualizar(id_livro, titulo=titulo, autor=autor, categoria=categoria, isbn=isbn, ano_publicacao=ano_publicacao)
+                Livro.atualizar(id_livro, titulo=titulo, autor=autor, categoria=categoria, isbn=isbn, ano_publicacao=int(ano_publicacao))
             else:
                 print("Livro não encontrado.")
 
@@ -190,10 +198,19 @@ def menu_livros():
             Livro.listar_todos()
 
         elif opcao == "6":
+            termo = input("Digite o título, autor ou ISBN para buscar: ")
+            Livro.procurar(termo)
+
+        elif opcao == "7":
+            id_livro = input("ID do Livro: ")
+            Livro.verificar_disponibilidade(id_livro)
+
+        elif opcao == "8":
             break
 
         else:
             print("Opção inválida! Tente novamente.")
+
 
 def menu_funcionarios():
     while True:

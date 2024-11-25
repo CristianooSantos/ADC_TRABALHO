@@ -270,3 +270,29 @@ class Livro:
                 print(f"Dados carregados de {arquivo}.")
         except FileNotFoundError:
             print("Arquivo não encontrado.")
+            
+    @staticmethod
+    def procurar(termo):
+        """Procura livros pelo título, autor ou ISBN.
+
+        Args:
+            termo (str): O termo de busca.
+
+        Exemplo:
+            >>> Livro.procurar("A Arte da Programação")
+            Resultados encontrados:
+            ID: 001, Título: A Arte da Programação, Disponível: Sim
+        """
+        resultados = [
+            livro for livro in Livro.livros.values()
+            if termo.lower() in livro.titulo.lower() or
+               termo.lower() in livro.autor.lower() or
+               termo.lower() in livro.isbn
+        ]
+
+        if resultados:
+            print("\nResultados encontrados:")
+            for livro in resultados:
+                print(f"ID: {livro.id_livro}, Título: {livro.titulo}, Disponível: {'Sim' if livro.disponivel else 'Não'}")
+        else:
+            print(f"Nenhum livro encontrado com o termo '{termo}'.")
