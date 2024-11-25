@@ -1,3 +1,40 @@
+"""
+Sistema de Gestão de Biblioteca
+===============================
+
+Este módulo principal implementa um sistema para gerenciar livros, leitores, funcionários e empréstimos em uma biblioteca.
+Ele permite criar, atualizar, listar e deletar dados de várias entidades, além de gerenciar empréstimos e gerar relatórios.
+
+Módulos e Classes Utilizadas:
+-----------------------------
+- Livro: Gerencia livros na biblioteca.
+- Leitor: Gerencia leitores da biblioteca.
+- Funcionario: Gerencia funcionários da biblioteca.
+- Emprestimo: Gerencia empréstimos realizados.
+- datetime: Para lidar com datas e horários.
+
+Funções Principais:
+-------------------
+- criar_dados_teste(): Cria dados fictícios para teste.
+- menu_principal(): Gerencia o fluxo principal do programa e exibe as opções do menu.
+- carregar_dados(): Carrega os dados das entidades a partir de arquivos serializados.
+- salvar_dados(): Salva os dados das entidades em arquivos serializados.
+- menu_leitores(): Gerencia operações relacionadas aos leitores.
+- menu_livros(): Gerencia operações relacionadas aos livros.
+- menu_funcionarios(): Gerencia operações relacionadas aos funcionários.
+- menu_emprestimos(): Gerencia operações relacionadas aos empréstimos.
+- gerar_relatorio_mensal(): Gera um relatório mensal sobre as atividades da biblioteca.
+
+Execução:
+---------
+Este módulo deve ser executado diretamente. O menu principal será iniciado e o usuário poderá interagir com as opções.
+
+Exemplo de Uso:
+---------------
+$ python main.py
+"""
+
+
 from livro import Livro
 from funcionario import Funcionario
 from emprestimo import Emprestimo
@@ -5,7 +42,13 @@ from leitor import Leitor
 from datetime import datetime
 
 def criar_dados_teste():
-    """Popula as entidades com dados fictícios para testes."""
+    """
+    Popula as entidades com dados fictícios para testes.
+
+    Exemplo:
+        >>> criar_dados_teste()
+        Dados de teste criados com sucesso!
+    """
    
     Livro("1", "O Senhor dos Anéis", "J.R.R. Tolkien", "Fantasia", "978-0-1234-5678-9", 1954).salvar()
     Livro("2", "1984", "George Orwell", "Distopia", "978-0-9876-5432-1", 1949).salvar()
@@ -25,6 +68,25 @@ def criar_dados_teste():
     print("Dados de teste criados com sucesso!")
 
 def menu_principal():
+    """
+    Exibe o menu principal e gerencia o fluxo de operações com base na escolha do usuário.
+
+    Opções do Menu:
+        1. Gerir Leitores
+        2. Gerir Livros
+        3. Gerir Funcionários
+        4. Gerir Empréstimos
+        5. Gerar Relatório Mensal
+        6. Carregar Dados de Arquivo
+        7. Salvar Dados em Arquivo
+        8. Criar Dados de Teste
+        9. Sair
+
+    Exemplo:
+        >>> menu_principal()
+        Sistema de Gestão da Biblioteca
+        Escolha uma opção: 1
+    """
     while True:
         print("\nSistema de Gestão da Biblioteca")
         print("1. Gerir Leitores")
@@ -62,6 +124,13 @@ def menu_principal():
             print("Opção inválida! Tente novamente.")
 
 def carregar_dados():
+    """
+    Carrega dados das entidades Livro, Leitor, Funcionário e Empréstimo a partir de arquivos.
+
+    Exemplo:
+        >>> carregar_dados()
+        Dados carregados com sucesso!
+    """
     try:
         Livro.carregar_de_arquivo("livros.pkl")
         Leitor.carregar_de_arquivo("leitores.pkl")
@@ -72,6 +141,13 @@ def carregar_dados():
         print(f"Erro ao carregar os dados: {e}")
 
 def salvar_dados():
+    """
+    Salva dados das entidades Livro, Leitor, Funcionário e Empréstimo em arquivos.
+
+    Exemplo:
+        >>> salvar_dados()
+        Dados salvos com sucesso!
+    """
     try:
         Livro.salvar_em_arquivo("livros.pkl")
         Leitor.salvar_em_arquivo("leitores.pkl")
@@ -82,6 +158,23 @@ def salvar_dados():
         print(f"Erro ao salvar os dados: {e}")
 
 def menu_leitores():
+    """
+    Exibe o menu de gerenciamento de leitores, permitindo ao usuário realizar operações como adicionar,
+    consultar, atualizar, deletar e listar leitores.
+
+    Opções do Menu:
+        1. Adicionar Leitor
+        2. Consultar Leitor por ID
+        3. Atualizar Leitor
+        4. Deletar Leitor
+        5. Listar Todos os Leitores
+        6. Voltar ao Menu Principal
+
+    Exemplo:
+        >>> menu_leitores()
+        Gerenciamento de Leitores
+        Escolha uma opção: 1
+    """
     while True:
         print("\nGerenciamento de Leitores")
         print("1. Adicionar Leitor")
@@ -139,6 +232,23 @@ def menu_leitores():
             print("Opção inválida! Tente novamente.")
 
 def menu_livros():
+    """
+    Exibe o menu de gerenciamento de livros, permitindo ao usuário realizar operações como adicionar,
+    consultar, atualizar, deletar e listar livros.
+
+    Opções do Menu:
+        1. Adicionar Livro
+        2. Consultar Livro por ID
+        3. Atualizar Livro
+        4. Deletar Livro
+        5. Listar Todos os Livros
+        6. Voltar ao Menu Principal
+
+    Exemplo:
+        >>> menu_livros()
+        Gerenciamento de Livros
+        Escolha uma opção: 1
+    """
     while True:
         print("\nGerenciamento de Livros")
         print("1. Adicionar Livro")
@@ -213,6 +323,23 @@ def menu_livros():
 
 
 def menu_funcionarios():
+    """
+    Exibe o menu de gerenciamento de funcionários, permitindo ao usuário realizar operações como adicionar,
+    consultar, atualizar, deletar e listar funcionários.
+
+    Opções do Menu:
+        1. Adicionar Funcionário
+        2. Consultar Funcionário por ID
+        3. Atualizar Funcionário
+        4. Deletar Funcionário
+        5. Listar Todos os Funcionários
+        6. Voltar ao Menu Principal
+
+    Exemplo:
+        >>> menu_funcionarios()
+        Gerenciamento de Funcionários
+        Escolha uma opção: 1
+    """
     while True:
         print("\nGerenciamento de Funcionários")
         print("1. Adicionar Funcionário")
@@ -270,6 +397,21 @@ def menu_funcionarios():
             print("Opção inválida! Tente novamente.")
 
 def menu_emprestimos():
+    """
+    Exibe o menu de gerenciamento de empréstimos, permitindo ao usuário criar, consultar, deletar e listar empréstimos.
+
+    Opções do Menu:
+        1. Criar Empréstimo
+        2. Consultar Empréstimo por ID
+        3. Deletar Empréstimo
+        4. Listar Todos os Empréstimos
+        5. Voltar ao Menu Principal
+
+    Exemplo:
+        >>> menu_emprestimos()
+        Gerenciamento de Empréstimos
+        Escolha uma opção: 1
+    """
     while True:
         print("\nGerenciamento de Empréstimos")
         print("1. Criar Empréstimo")
