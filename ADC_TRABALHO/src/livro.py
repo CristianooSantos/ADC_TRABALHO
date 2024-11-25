@@ -7,8 +7,8 @@ class Livro:
         livros (dict): Dicionário estático contendo todos os livros cadastrados.
         emprestimos (dict): Dicionário estático contendo os registros de empréstimos dos livros.
     """
-    livros = {}  # Dicionário estático para armazenar os livros
-    emprestimos = {}  # Dicionário estático para armazenar os empréstimos dos livros
+    livros = {}  
+    emprestimos = {}  
 
     def __init__(self, id_livro, titulo, autor, categoria, isbn, ano_publicacao):
         """Inicializa um livro com os dados fornecidos.
@@ -27,7 +27,7 @@ class Livro:
         self.categoria = categoria
         self.isbn = isbn
         self.ano_publicacao = ano_publicacao
-        self.disponivel = True  # Indica se o livro está disponível para empréstimo
+        self.disponivel = True 
 
     def salvar(self):
         """Salva o livro no dicionário estático `Livro.livros`.
@@ -40,7 +40,7 @@ class Livro:
             Livro 001 adicionado com sucesso.
         """
         Livro.livros[self.id_livro] = self
-        Livro.emprestimos[self.id_livro] = 0  # Inicializa o contador de empréstimos
+        Livro.emprestimos[self.id_livro] = 0  
         print(f"Livro {self.id_livro} adicionado com sucesso.")
 
     @staticmethod
@@ -98,7 +98,7 @@ class Livro:
         """
         if id_livro in Livro.livros:
             del Livro.livros[id_livro]
-            del Livro.emprestimos[id_livro]  # Remove o registro de empréstimos
+            del Livro.emprestimos[id_livro]  
             print(f"Livro {id_livro} deletado com sucesso.")
         else:
             print("Livro não encontrado.")
@@ -187,7 +187,7 @@ class Livro:
         if livro:
             if livro.disponivel:
                 livro.disponivel = False
-                Livro.emprestimos[id_livro] += 1  # Incrementa o contador de empréstimos
+                Livro.emprestimos[id_livro] += 1  
                 print(f"Livro '{livro.titulo}' emprestado com sucesso.")
             else:
                 print(f"O livro '{livro.titulo}' já está emprestado.")
