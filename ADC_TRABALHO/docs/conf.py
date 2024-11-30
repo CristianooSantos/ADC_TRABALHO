@@ -12,9 +12,9 @@ sys.path.insert(0, 'C:\\Users\\admin\\Pictures\\ADC_TRABALHO\\ADC_TRABALHO\\src'
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'src'
-copyright = '2024, Author'
-author = 'Author'
+project = 'GESTOR BIBLIOTECA ADC'
+copyright = '2024, CRISTIANO, HENRIQUE, FRANCISCO, AFONSO'
+author = 'CRISTIANO, HENRIQUE, FRANCISCO, AFONSO'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -28,7 +28,7 @@ extensions = [
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-language = 'en'
+language = 'pt'
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

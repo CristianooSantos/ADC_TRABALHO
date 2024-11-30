@@ -71,7 +71,7 @@ class Leitor:
 
         Args:
             numero_leitor (str): Número do leitor a ser atualizado.
-            **kwargs: Atributos do leitor que precisam ser atualizados.
+            **kwargs**: Atributos do leitor que precisam ser atualizados.
 
         Raises:
             KeyError: Se o leitor não for encontrado.

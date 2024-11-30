@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="pt" data-content_root="../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Índice" href="../genindex.html" /><link rel="search" title="Pesquisar" href="../search.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>funcionario - src documentation</title>
+        <title>funcionario - Documentação GESTOR BIBLIOTECA ADC</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
@@ -165,7 +165,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">src  documentation</div></a>
+      <a href="../index.html"><div class="brand">Documentação GESTOR BIBLIOTECA ADC </div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -189,10 +189,10 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">src  documentation</span>
+  <span class="sidebar-brand-text">Documentação GESTOR BIBLIOTECA ADC </span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
-  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input class="sidebar-search" placeholder="Pesquisar" name="q" aria-label="Pesquisar">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -238,44 +238,124 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <h1>Source code for funcionario</h1><div class="highlight"><pre>
+          <h1>Código fonte de funcionario</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">pickle</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
 <div class="viewcode-block" id="Funcionario">
-<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario">[docs]</a>
+<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario">[documentos]</a>
 <span class="k">class</span> <span class="nc">Funcionario</span><span class="p">:</span>
-    <span class="n">funcionarios</span> <span class="o">=</span> <span class="p">{}</span>  
-    <span class="n">atividades</span> <span class="o">=</span> <span class="p">[]</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe para representar e gerir os dados de funcionários.</span>
+<span class="sd">    </span>
+<span class="sd">    Atributos:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    funcionarios : dict</span>
+<span class="sd">        Dicionário para armazenar os funcionários com seus respetivos IDs como chaves.</span>
+<span class="sd">    atividades : list</span>
+<span class="sd">        Lista para registar todas as atividades realizadas no sistema.</span>
+
+<span class="sd">    Métodos:</span>
+<span class="sd">    --------</span>
+<span class="sd">    __init__(self, id_funcionario, nome, morada, telefone, nif, email):</span>
+<span class="sd">        Construtor da classe para inicializar um novo funcionário.</span>
+<span class="sd">    salvar(self):</span>
+<span class="sd">        Salva o funcionário atual no dicionário de funcionários e regista a atividade.</span>
+<span class="sd">    obter(id_funcionario):</span>
+<span class="sd">        Obtém os dados de um funcionário pelo ID.</span>
+<span class="sd">    atualizar(id_funcionario, **kwargs**):</span>
+<span class="sd">        Atualiza os dados de um funcionário específico.</span>
+<span class="sd">    deletar(id_funcionario):</span>
+<span class="sd">        Remove um funcionário do sistema pelo ID.</span>
+<span class="sd">    listar_todos():</span>
+<span class="sd">        Lista todos os funcionários armazenados.</span>
+<span class="sd">    salvar_em_arquivo(arquivo):</span>
+<span class="sd">        Salva os funcionários num ficheiro binário.</span>
+<span class="sd">    carregar_de_arquivo(arquivo):</span>
+<span class="sd">        Carrega os funcionários de um ficheiro binário.</span>
+<span class="sd">    atribuir_funcoes(id_funcionario, *funcoes*):</span>
+<span class="sd">        Atribui funções a um funcionário específico.</span>
+<span class="sd">    gerar_relatorio_atividades():</span>
+<span class="sd">        Gera e exibe um relatório de todas as atividades registadas.</span>
+<span class="sd">    registar_atividade(descricao):</span>
+<span class="sd">        Regista uma nova atividade no sistema com um timestamp.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">funcionarios</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Armazena os funcionários criados no sistema</span>
+    <span class="n">atividades</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Regista as atividades realizadas no sistema</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">id_funcionario</span><span class="p">,</span> <span class="n">nome</span><span class="p">,</span> <span class="n">morada</span><span class="p">,</span> <span class="n">telefone</span><span class="p">,</span> <span class="n">nif</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Inicializa um novo objeto Funcionario.</span>
+
+<span class="sd">        Parâmetros:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        id_funcionario : str</span>
+<span class="sd">            Identificador único do funcionário.</span>
+<span class="sd">        nome : str</span>
+<span class="sd">            Nome completo do funcionário.</span>
+<span class="sd">        morada : str</span>
+<span class="sd">            Endereço residencial do funcionário.</span>
+<span class="sd">        telefone : str</span>
+<span class="sd">            Número de telefone do funcionário.</span>
+<span class="sd">        nif : str</span>
+<span class="sd">            Número de Identificação Fiscal do funcionário.</span>
+<span class="sd">        email : str</span>
+<span class="sd">            Endereço de email do funcionário.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">id_funcionario</span> <span class="o">=</span> <span class="n">id_funcionario</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nome</span> <span class="o">=</span> <span class="n">nome</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">morada</span> <span class="o">=</span> <span class="n">morada</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">telefone</span> <span class="o">=</span> <span class="n">telefone</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nif</span> <span class="o">=</span> <span class="n">nif</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">funcoes</span> <span class="o">=</span> <span class="p">[]</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">funcoes</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Lista de funções atribuídas ao funcionário</span>
 
 <div class="viewcode-block" id="Funcionario.salvar">
-<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.salvar">[docs]</a>
+<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.salvar">[documentos]</a>
     <span class="k">def</span> <span class="nf">salvar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Salva o funcionário no dicionário de funcionários e regista a atividade.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">Funcionario</span><span class="o">.</span><span class="n">funcionarios</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">id_funcionario</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span>
         <span class="n">Funcionario</span><span class="o">.</span><span class="n">registar_atividade</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Funcionário </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id_funcionario</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nome</span><span class="si">}</span><span class="s2">) adicionado.&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Funcionário </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id_funcionario</span><span class="si">}</span><span class="s2"> adicionado com sucesso.&quot;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Funcionario.obter">
-<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.obter">[docs]</a>
+<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.obter">[documentos]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">obter</span><span class="p">(</span><span class="n">id_funcionario</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtém os dados de um funcionário pelo ID.</span>
+
+<span class="sd">        Parâmetros:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        id_funcionario : str</span>
+<span class="sd">            Identificador do funcionário a ser obtido.</span>
+
+<span class="sd">        Retorna:</span>
+<span class="sd">        --------</span>
+<span class="sd">        Funcionario</span>
+<span class="sd">            Objeto do funcionário correspondente ou None se não existir.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">Funcionario</span><span class="o">.</span><span class="n">funcionarios</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">id_funcionario</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Funcionario.atualizar">
-<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.atualizar">[docs]</a>
+<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.atualizar">[documentos]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">atualizar</span><span class="p">(</span><span class="n">id_funcionario</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Atualiza os dados de um funcionário.</span>
+
+<span class="sd">        Parâmetros:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        id_funcionario : str</span>
+<span class="sd">            Identificador do funcionário a ser atualizado.</span>
+<span class="sd">        **kwargs** : dict</span>
+<span class="sd">            Dados a serem atualizados no funcionário.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">funcionario</span> <span class="o">=</span> <span class="n">Funcionario</span><span class="o">.</span><span class="n">obter</span><span class="p">(</span><span class="n">id_funcionario</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">funcionario</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">chave</span><span class="p">,</span> <span class="n">valor</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -287,9 +367,17 @@
 
 
 <div class="viewcode-block" id="Funcionario.deletar">
-<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.deletar">[docs]</a>
+<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.deletar">[documentos]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">deletar</span><span class="p">(</span><span class="n">id_funcionario</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove um funcionário pelo ID.</span>
+
+<span class="sd">        Parâmetros:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        id_funcionario : str</span>
+<span class="sd">            Identificador do funcionário a ser removido.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">id_funcionario</span> <span class="ow">in</span> <span class="n">Funcionario</span><span class="o">.</span><span class="n">funcionarios</span><span class="p">:</span>
             <span class="k">del</span> <span class="n">Funcionario</span><span class="o">.</span><span class="n">funcionarios</span><span class="p">[</span><span class="n">id_funcionario</span><span class="p">]</span>
             <span class="n">Funcionario</span><span class="o">.</span><span class="n">registar_atividade</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Funcionário </span><span class="si">{</span><span class="n">id_funcionario</span><span class="si">}</span><span class="s2"> removido.&quot;</span><span class="p">)</span>
@@ -299,9 +387,12 @@
 
 
 <div class="viewcode-block" id="Funcionario.listar_todos">
-<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.listar_todos">[docs]</a>
+<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.listar_todos">[documentos]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">listar_todos</span><span class="p">():</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lista todos os funcionários no sistema.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">Funcionario</span><span class="o">.</span><span class="n">funcionarios</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Lista de Funcionários:&quot;</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">funcionario</span> <span class="ow">in</span> <span class="n">Funcionario</span><span class="o">.</span><span class="n">funcionarios</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
@@ -312,22 +403,40 @@
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;NIF: </span><span class="si">{</span><span class="n">funcionario</span><span class="o">.</span><span class="n">nif</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Email: </span><span class="si">{</span><span class="n">funcionario</span><span class="o">.</span><span class="n">email</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Funções: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">funcionario</span><span class="o">.</span><span class="n">funcoes</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">funcionario</span><span class="o">.</span><span class="n">funcoes</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;Nenhuma&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span> </div>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nenhum funcionário registado.&quot;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Funcionario.salvar_em_arquivo">
-<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.salvar_em_arquivo">[docs]</a>
+<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.salvar_em_arquivo">[documentos]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">salvar_em_arquivo</span><span class="p">(</span><span class="n">arquivo</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Salva todos os funcionários num ficheiro binário.</span>
+
+<span class="sd">        Parâmetros:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        arquivo : str</span>
+<span class="sd">            Nome do ficheiro onde os dados serão armazenados.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">arquivo</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">Funcionario</span><span class="o">.</span><span class="n">funcionarios</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Funcionários salvos em </span><span class="si">{</span><span class="n">arquivo</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Funcionario.carregar_de_arquivo">
-<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.carregar_de_arquivo">[docs]</a>
+<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.carregar_de_arquivo">[documentos]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">carregar_de_arquivo</span><span class="p">(</span><span class="n">arquivo</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Carrega funcionários de um ficheiro binário.</span>
+
+<span class="sd">        Parâmetros:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        arquivo : str</span>
+<span class="sd">            Nome do ficheiro a ser lido.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">arquivo</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                 <span class="n">Funcionario</span><span class="o">.</span><span class="n">funcionarios</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
@@ -337,9 +446,19 @@
 
 
 <div class="viewcode-block" id="Funcionario.atribuir_funcoes">
-<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.atribuir_funcoes">[docs]</a>
+<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.atribuir_funcoes">[documentos]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">atribuir_funcoes</span><span class="p">(</span><span class="n">id_funcionario</span><span class="p">,</span> <span class="o">*</span><span class="n">funcoes</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Atribui funções a um funcionário.</span>
+
+<span class="sd">        Parâmetros:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        id_funcionario : str</span>
+<span class="sd">            Identificador do funcionário.</span>
+<span class="sd">        *funcoes* : tuple</span>
+<span class="sd">            Lista de funções a serem atribuídas.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">funcionario</span> <span class="o">=</span> <span class="n">Funcionario</span><span class="o">.</span><span class="n">obter</span><span class="p">(</span><span class="n">id_funcionario</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">funcionario</span><span class="p">:</span>
             <span class="n">funcionario</span><span class="o">.</span><span class="n">funcoes</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">funcoes</span><span class="p">)</span>
@@ -350,9 +469,12 @@
 
 
 <div class="viewcode-block" id="Funcionario.gerar_relatorio_atividades">
-<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.gerar_relatorio_atividades">[docs]</a>
+<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.gerar_relatorio_atividades">[documentos]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">gerar_relatorio_atividades</span><span class="p">():</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gera e exibe um relatório de atividades realizadas.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">Funcionario</span><span class="o">.</span><span class="n">atividades</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Relatório de Atividades:&quot;</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">atividade</span> <span class="ow">in</span> <span class="n">Funcionario</span><span class="o">.</span><span class="n">atividades</span><span class="p">:</span>
@@ -362,9 +484,17 @@
 
 
 <div class="viewcode-block" id="Funcionario.registar_atividade">
-<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.registar_atividade">[docs]</a>
+<a class="viewcode-back" href="../funcionario.html#funcionario.Funcionario.registar_atividade">[documentos]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">registar_atividade</span><span class="p">(</span><span class="n">descricao</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Regista uma nova atividade com timestamp.</span>
+
+<span class="sd">        Parâmetros:</span>
+<span class="sd">        -----------</span>
+<span class="sd">        descricao : str</span>
+<span class="sd">            Descrição da atividade realizada.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
         <span class="n">Funcionario</span><span class="o">.</span><span class="n">atividades</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">descricao</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
 </div>
@@ -381,7 +511,7 @@
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2024, Author
+                Copyright &#169; 2024, CRISTIANO, HENRIQUE, FRANCISCO, AFONSO
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -401,9 +531,10 @@
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+</div><script src="../_static/documentation_options.js?v=103ffe9a"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/translations.js?v=beaedd51"></script>
     </body>
 </html>
