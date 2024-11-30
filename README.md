@@ -1,3 +1,18 @@
+# Instalação
+
+1. Clone este repositório:  
+   ```bash
+   git clone https://github.com/CristianooSantos/ADC_TRABALHO.git
+   cd ADC_TRABALHO
+   ```
+
+2. Instale as dependências:  
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+---
+
 # Sistema de Gestão de Biblioteca
 
 Este é um sistema de gestão de biblioteca desenvolvido em **Python**, projetado para gerenciar livros, leitores, funcionários e empréstimos. Ele inclui funcionalidades como **CRUD** (criação, leitura, atualização e exclusão) de registros, notificações de prazos, relatórios e persistência de dados.
@@ -51,21 +66,6 @@ Este é um sistema de gestão de biblioteca desenvolvido em **Python**, projetad
 ├── README.md               # Documentação do sistema
 └── requirements.txt        # Dependências do projeto
 ```
-
----
-
-## Instalação
-
-1. Clone este repositório:  
-   ```bash
-   git clone https://github.com/CristianooSantos/ADC_TRABALHO.git
-   cd ADC_TRABALHO
-   ```
-
-2. Instale as dependências:  
-   ```bash
-   pip install -r requirements.txt
-   ```
 
 ---
 
