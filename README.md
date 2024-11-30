@@ -18,3 +18,28 @@ Este é um sistema de gestão de biblioteca desenvolvido em Python, projetado pa
 
 - **Relatórios**  
   Gerar relatórios personalizados, como livros disponíveis, atrasos e histórico de empréstimos.
+
+- **Notificações**  
+  Enviar notificações para alertar sobre prazos de devolução e empréstimos vencidos.
+ 
+- **Persistência de Dados**  
+  Utiliza arquivos serializados no formato `.pkl` para salvar e carregar os dados do sistema.
+ 
+## Estrutura do Projeto
+ 
+```plaintext
+.
+├── src/
+│   ├── livros.py           # Módulo para gerenciar livros
+│   ├── leitores.py         # Módulo para gerenciar leitores
+│   ├── funcionarios.py     # Módulo para gerenciar funcionários
+│   ├── emprestimos.py      # Módulo para gerenciar empréstimos
+│   ├── utils.py            # Funções auxiliares para o sistema
+│   └── main.py             # Arquivo principal que executa o sistema
+├── ADC_TRABALHO/           # Pasta para armazenar arquivos de dados
+│   ├── livros.pkl          # Arquivo serializado para armazenar dados de livros
+│   ├── leitores.pkl        # Arquivo serializado para leitores
+│   ├── funcionarios.pkl    # Arquivo serializado para funcionários
+│   └── emprestimos.pkl     # Arquivo serializado para empréstimos
+├── README.md               # Documentação do sistema
+└── requirements.txt        # Dependências do projeto
