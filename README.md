@@ -1,32 +1,39 @@
 # Sistema de Gestão de Biblioteca
 
-Este é um sistema de gestão de biblioteca desenvolvido em Python, projetado para gerenciar livros, leitores, funcionários e empréstimos. Ele inclui funcionalidades como CRUD (criação, leitura, atualização e exclusão) de registros, notificações de prazos, relatórios e persistência de dados.
+Este é um sistema de gestão de biblioteca desenvolvido em **Python**, projetado para gerenciar livros, leitores, funcionários e empréstimos. Ele inclui funcionalidades como **CRUD** (criação, leitura, atualização e exclusão) de registros, notificações de prazos, relatórios e persistência de dados.
+
+---
 
 ## Funcionalidades
 
-- **Gestão de Livros**  
-  Adicionar, listar, atualizar e remover livros da biblioteca.
+### **Gestão de Livros**  
+- Adicionar, listar, atualizar e remover livros da biblioteca.
 
-- **Gestão de Leitores**  
-  Cadastrar, atualizar, listar e excluir leitores registrados.
+### **Gestão de Leitores**  
+- Cadastrar, atualizar, listar e excluir leitores registrados.
 
-- **Gestão de Funcionários**  
-  Gerenciar informações dos funcionários da biblioteca.
+### **Gestão de Funcionários**  
+- Gerenciar informações dos funcionários da biblioteca.
 
-- **Gestão de Empréstimos**  
-  Realizar e controlar empréstimos e devoluções de livros.
+### **Gestão de Empréstimos**  
+- Realizar e controlar empréstimos e devoluções de livros.
 
-- **Relatórios**  
-  Gerar relatórios personalizados, como livros disponíveis, atrasos e histórico de empréstimos.
+### **Relatórios**  
+- Gerar relatórios personalizados, como:
+  - Livros disponíveis
+  - Atrasos
+  - Histórico de empréstimos
 
-- **Notificações**  
-  Enviar notificações para alertar sobre prazos de devolução e empréstimos vencidos.
- 
-- **Persistência de Dados**  
-  Utiliza arquivos serializados no formato `.pkl` para salvar e carregar os dados do sistema.
- 
+### **Notificações**  
+- Enviar alertas sobre prazos de devolução e empréstimos vencidos.
+
+### **Persistência de Dados**  
+- Utiliza arquivos serializados no formato `.pkl` para salvar e carregar os dados do sistema.
+
+---
+
 ## Estrutura do Projeto
- 
+
 ```plaintext
 .
 ├── src/
@@ -43,3 +50,23 @@ Este é um sistema de gestão de biblioteca desenvolvido em Python, projetado pa
 │   └── emprestimos.pkl     # Arquivo serializado para empréstimos
 ├── README.md               # Documentação do sistema
 └── requirements.txt        # Dependências do projeto
+```
+
+---
+
+## Instalação
+
+1. Clone este repositório:  
+   ```bash
+   git clone https://github.com/CristianooSantos/ADC_TRABALHO.git
+   cd ADC_TRABALHO
+   ```
+
+2. Instale as dependências:  
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+---
+
+Este projeto foi desenvolvido para facilitar a gestão de bibliotecas, otimizando os processos administrativos e a experiência dos utilizadores.
