@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="pt" data-content_root="../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Índice" href="../genindex.html" /><link rel="search" title="Pesquisar" href="../search.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>main - src documentation</title>
+        <title>main - Documentação GESTOR BIBLIOTECA ADC</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
@@ -165,7 +165,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">src  documentation</div></a>
+      <a href="../index.html"><div class="brand">Documentação GESTOR BIBLIOTECA ADC </div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -189,10 +189,10 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">src  documentation</span>
+  <span class="sidebar-brand-text">Documentação GESTOR BIBLIOTECA ADC </span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
-  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input class="sidebar-search" placeholder="Pesquisar" name="q" aria-label="Pesquisar">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -238,39 +238,101 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <h1>Source code for main</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">livro</span> <span class="kn">import</span> <span class="n">Livro</span>
+          <h1>Código fonte de main</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Sistema de Gestão de Biblioteca</span>
+<span class="sd">===============================</span>
+
+<span class="sd">Este módulo principal implementa um sistema para gerenciar livros, leitores, funcionários e empréstimos em uma biblioteca.</span>
+<span class="sd">Ele permite criar, atualizar, listar e deletar dados de várias entidades, além de gerenciar empréstimos e gerar relatórios.</span>
+
+<span class="sd">Módulos e Classes Utilizadas:</span>
+<span class="sd">-----------------------------</span>
+<span class="sd">- Livro: Gerencia livros na biblioteca.</span>
+<span class="sd">- Leitor: Gerencia leitores da biblioteca.</span>
+<span class="sd">- Funcionario: Gerencia funcionários da biblioteca.</span>
+<span class="sd">- Emprestimo: Gerencia empréstimos realizados.</span>
+<span class="sd">- datetime: Para lidar com datas e horários.</span>
+
+<span class="sd">Funções Principais:</span>
+<span class="sd">-------------------</span>
+<span class="sd">- criar_dados_teste(): Cria dados fictícios para teste.</span>
+<span class="sd">- menu_principal(): Gerencia o fluxo principal do programa e exibe as opções do menu.</span>
+<span class="sd">- carregar_dados(): Carrega os dados das entidades a partir de arquivos serializados.</span>
+<span class="sd">- salvar_dados(): Salva os dados das entidades em arquivos serializados.</span>
+<span class="sd">- menu_leitores(): Gerencia operações relacionadas aos leitores.</span>
+<span class="sd">- menu_livros(): Gerencia operações relacionadas aos livros.</span>
+<span class="sd">- menu_funcionarios(): Gerencia operações relacionadas aos funcionários.</span>
+<span class="sd">- menu_emprestimos(): Gerencia operações relacionadas aos empréstimos.</span>
+<span class="sd">- gerar_relatorio_mensal(): Gera um relatório mensal sobre as atividades da biblioteca.</span>
+
+<span class="sd">Execução:</span>
+<span class="sd">---------</span>
+<span class="sd">Este módulo deve ser executado diretamente. O menu principal será iniciado e o usuário poderá interagir com as opções.</span>
+
+<span class="sd">Exemplo de Uso:</span>
+<span class="sd">---------------</span>
+<span class="sd">$ python main.py</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="kn">from</span> <span class="nn">livro</span> <span class="kn">import</span> <span class="n">Livro</span>
 <span class="kn">from</span> <span class="nn">funcionario</span> <span class="kn">import</span> <span class="n">Funcionario</span>
 <span class="kn">from</span> <span class="nn">emprestimo</span> <span class="kn">import</span> <span class="n">Emprestimo</span>
 <span class="kn">from</span> <span class="nn">leitor</span> <span class="kn">import</span> <span class="n">Leitor</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
 <div class="viewcode-block" id="criar_dados_teste">
-<a class="viewcode-back" href="../main.html#main.criar_dados_teste">[docs]</a>
+<a class="viewcode-back" href="../main.html#main.criar_dados_teste">[documentos]</a>
 <span class="k">def</span> <span class="nf">criar_dados_teste</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Popula as entidades com dados fictícios para testes.&quot;&quot;&quot;</span>
-    <span class="c1"># Adicionar livros</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Popula as entidades com dados fictícios para testes.</span>
+
+<span class="sd">    Exemplo:</span>
+<span class="sd">        &gt;&gt;&gt; criar_dados_teste()</span>
+<span class="sd">        Dados de teste criados com sucesso!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+   
     <span class="n">Livro</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;O Senhor dos Anéis&quot;</span><span class="p">,</span> <span class="s2">&quot;J.R.R. Tolkien&quot;</span><span class="p">,</span> <span class="s2">&quot;Fantasia&quot;</span><span class="p">,</span> <span class="s2">&quot;978-0-1234-5678-9&quot;</span><span class="p">,</span> <span class="mi">1954</span><span class="p">)</span><span class="o">.</span><span class="n">salvar</span><span class="p">()</span>
     <span class="n">Livro</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;1984&quot;</span><span class="p">,</span> <span class="s2">&quot;George Orwell&quot;</span><span class="p">,</span> <span class="s2">&quot;Distopia&quot;</span><span class="p">,</span> <span class="s2">&quot;978-0-9876-5432-1&quot;</span><span class="p">,</span> <span class="mi">1949</span><span class="p">)</span><span class="o">.</span><span class="n">salvar</span><span class="p">()</span>
     <span class="n">Livro</span><span class="p">(</span><span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;O Pequeno Príncipe&quot;</span><span class="p">,</span> <span class="s2">&quot;Antoine de Saint-Exupéry&quot;</span><span class="p">,</span> <span class="s2">&quot;Ficção&quot;</span><span class="p">,</span> <span class="s2">&quot;978-0-1111-2222-3&quot;</span><span class="p">,</span> <span class="mi">1943</span><span class="p">)</span><span class="o">.</span><span class="n">salvar</span><span class="p">()</span>
 
-    <span class="c1"># Adicionar leitores</span>
+    
     <span class="n">Leitor</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;João Silva&quot;</span><span class="p">,</span> <span class="s2">&quot;Rua A, 123&quot;</span><span class="p">,</span> <span class="s2">&quot;912345678&quot;</span><span class="p">,</span> <span class="s2">&quot;123456789&quot;</span><span class="p">,</span> <span class="s2">&quot;joao@email.com&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">salvar</span><span class="p">()</span>
     <span class="n">Leitor</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;Maria Oliveira&quot;</span><span class="p">,</span> <span class="s2">&quot;Rua B, 456&quot;</span><span class="p">,</span> <span class="s2">&quot;987654321&quot;</span><span class="p">,</span> <span class="s2">&quot;987654321&quot;</span><span class="p">,</span> <span class="s2">&quot;maria@email.com&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">salvar</span><span class="p">()</span>
 
-    <span class="c1"># Adicionar funcionários</span>
+   
     <span class="n">Funcionario</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;Carlos Pereira&quot;</span><span class="p">,</span> <span class="s2">&quot;Rua C, 789&quot;</span><span class="p">,</span> <span class="s2">&quot;912112233&quot;</span><span class="p">,</span> <span class="s2">&quot;654987321&quot;</span><span class="p">,</span> <span class="s2">&quot;carlos@email.com&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">salvar</span><span class="p">()</span>
     <span class="n">Funcionario</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;Ana Santos&quot;</span><span class="p">,</span> <span class="s2">&quot;Rua D, 321&quot;</span><span class="p">,</span> <span class="s2">&quot;987112233&quot;</span><span class="p">,</span> <span class="s2">&quot;456789123&quot;</span><span class="p">,</span> <span class="s2">&quot;ana@email.com&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">salvar</span><span class="p">()</span>
 
-    <span class="c1"># Adicionar empréstimos</span>
+    
     <span class="n">Emprestimo</span><span class="p">(</span><span class="s2">&quot;978-0-1234-5678-9&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="n">data_emprestimo</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">())</span><span class="o">.</span><span class="n">salvar</span><span class="p">()</span>
     <span class="n">Emprestimo</span><span class="p">(</span><span class="s2">&quot;978-0-9876-5432-1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="n">data_emprestimo</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">())</span><span class="o">.</span><span class="n">salvar</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dados de teste criados com sucesso!&quot;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="menu_principal">
-<a class="viewcode-back" href="../main.html#main.menu_principal">[docs]</a>
+<a class="viewcode-back" href="../main.html#main.menu_principal">[documentos]</a>
 <span class="k">def</span> <span class="nf">menu_principal</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Exibe o menu principal e gerencia o fluxo de operações com base na escolha do usuário.</span>
+
+<span class="sd">    Opções do Menu:</span>
+<span class="sd">        1. Gerir Leitores</span>
+<span class="sd">        2. Gerir Livros</span>
+<span class="sd">        3. Gerir Funcionários</span>
+<span class="sd">        4. Gerir Empréstimos</span>
+<span class="sd">        5. Gerar Relatório Mensal</span>
+<span class="sd">        6. Carregar Dados de Arquivo</span>
+<span class="sd">        7. Salvar Dados em Arquivo</span>
+<span class="sd">        8. Criar Dados de Teste</span>
+<span class="sd">        9. Sair</span>
+
+<span class="sd">    Exemplo:</span>
+<span class="sd">        &gt;&gt;&gt; menu_principal()</span>
+<span class="sd">        Sistema de Gestão da Biblioteca</span>
+<span class="sd">        Escolha uma opção: 1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Sistema de Gestão da Biblioteca&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Gerir Leitores&quot;</span><span class="p">)</span>
@@ -309,8 +371,15 @@
 
 
 <div class="viewcode-block" id="carregar_dados">
-<a class="viewcode-back" href="../main.html#main.carregar_dados">[docs]</a>
+<a class="viewcode-back" href="../main.html#main.carregar_dados">[documentos]</a>
 <span class="k">def</span> <span class="nf">carregar_dados</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Carrega dados das entidades Livro, Leitor, Funcionário e Empréstimo a partir de arquivos.</span>
+
+<span class="sd">    Exemplo:</span>
+<span class="sd">        &gt;&gt;&gt; carregar_dados()</span>
+<span class="sd">        Dados carregados com sucesso!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">Livro</span><span class="o">.</span><span class="n">carregar_de_arquivo</span><span class="p">(</span><span class="s2">&quot;livros.pkl&quot;</span><span class="p">)</span>
         <span class="n">Leitor</span><span class="o">.</span><span class="n">carregar_de_arquivo</span><span class="p">(</span><span class="s2">&quot;leitores.pkl&quot;</span><span class="p">)</span>
@@ -322,8 +391,15 @@
 
 
 <div class="viewcode-block" id="salvar_dados">
-<a class="viewcode-back" href="../main.html#main.salvar_dados">[docs]</a>
+<a class="viewcode-back" href="../main.html#main.salvar_dados">[documentos]</a>
 <span class="k">def</span> <span class="nf">salvar_dados</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Salva dados das entidades Livro, Leitor, Funcionário e Empréstimo em arquivos.</span>
+
+<span class="sd">    Exemplo:</span>
+<span class="sd">        &gt;&gt;&gt; salvar_dados()</span>
+<span class="sd">        Dados salvos com sucesso!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">Livro</span><span class="o">.</span><span class="n">salvar_em_arquivo</span><span class="p">(</span><span class="s2">&quot;livros.pkl&quot;</span><span class="p">)</span>
         <span class="n">Leitor</span><span class="o">.</span><span class="n">salvar_em_arquivo</span><span class="p">(</span><span class="s2">&quot;leitores.pkl&quot;</span><span class="p">)</span>
@@ -335,8 +411,25 @@
 
 
 <div class="viewcode-block" id="menu_leitores">
-<a class="viewcode-back" href="../main.html#main.menu_leitores">[docs]</a>
+<a class="viewcode-back" href="../main.html#main.menu_leitores">[documentos]</a>
 <span class="k">def</span> <span class="nf">menu_leitores</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Exibe o menu de gerenciamento de leitores, permitindo ao usuário realizar operações como adicionar,</span>
+<span class="sd">    consultar, atualizar, deletar e listar leitores.</span>
+
+<span class="sd">    Opções do Menu:</span>
+<span class="sd">        1. Adicionar Leitor</span>
+<span class="sd">        2. Consultar Leitor por ID</span>
+<span class="sd">        3. Atualizar Leitor</span>
+<span class="sd">        4. Deletar Leitor</span>
+<span class="sd">        5. Listar Todos os Leitores</span>
+<span class="sd">        6. Voltar ao Menu Principal</span>
+
+<span class="sd">    Exemplo:</span>
+<span class="sd">        &gt;&gt;&gt; menu_leitores()</span>
+<span class="sd">        Gerenciamento de Leitores</span>
+<span class="sd">        Escolha uma opção: 1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Gerenciamento de Leitores&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Adicionar Leitor&quot;</span><span class="p">)</span>
@@ -395,8 +488,25 @@
 
 
 <div class="viewcode-block" id="menu_livros">
-<a class="viewcode-back" href="../main.html#main.menu_livros">[docs]</a>
+<a class="viewcode-back" href="../main.html#main.menu_livros">[documentos]</a>
 <span class="k">def</span> <span class="nf">menu_livros</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Exibe o menu de gerenciamento de livros, permitindo ao usuário realizar operações como adicionar,</span>
+<span class="sd">    consultar, atualizar, deletar e listar livros.</span>
+
+<span class="sd">    Opções do Menu:</span>
+<span class="sd">        1. Adicionar Livro</span>
+<span class="sd">        2. Consultar Livro por ID</span>
+<span class="sd">        3. Atualizar Livro</span>
+<span class="sd">        4. Deletar Livro</span>
+<span class="sd">        5. Listar Todos os Livros</span>
+<span class="sd">        6. Voltar ao Menu Principal</span>
+
+<span class="sd">    Exemplo:</span>
+<span class="sd">        &gt;&gt;&gt; menu_livros()</span>
+<span class="sd">        Gerenciamento de Livros</span>
+<span class="sd">        Escolha uma opção: 1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Gerenciamento de Livros&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Adicionar Livro&quot;</span><span class="p">)</span>
@@ -404,7 +514,9 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3. Atualizar Livro&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4. Deletar Livro&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5. Listar Todos os Livros&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;6. Voltar ao Menu Principal&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;6. Procurar Livro por Título, Autor ou ISBN&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;7. Verificar Disponibilidade de um Livro&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;8. Voltar ao Menu Principal&quot;</span><span class="p">)</span>
 
         <span class="n">opcao</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Escolha uma opção: &quot;</span><span class="p">)</span>
 
@@ -415,7 +527,7 @@
             <span class="n">categoria</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Categoria: &quot;</span><span class="p">)</span>
             <span class="n">isbn</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ISBN: &quot;</span><span class="p">)</span>
             <span class="n">ano_publicacao</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Ano de Publicação: &quot;</span><span class="p">)</span>
-            <span class="n">livro</span> <span class="o">=</span> <span class="n">Livro</span><span class="p">(</span><span class="n">id_livro</span><span class="p">,</span> <span class="n">titulo</span><span class="p">,</span> <span class="n">autor</span><span class="p">,</span> <span class="n">categoria</span><span class="p">,</span> <span class="n">isbn</span><span class="p">,</span> <span class="n">ano_publicacao</span><span class="p">)</span>
+            <span class="n">livro</span> <span class="o">=</span> <span class="n">Livro</span><span class="p">(</span><span class="n">id_livro</span><span class="p">,</span> <span class="n">titulo</span><span class="p">,</span> <span class="n">autor</span><span class="p">,</span> <span class="n">categoria</span><span class="p">,</span> <span class="n">isbn</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">ano_publicacao</span><span class="p">))</span>
             <span class="n">livro</span><span class="o">.</span><span class="n">salvar</span><span class="p">()</span>
 
         <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
@@ -423,7 +535,13 @@
             <span class="n">livro</span> <span class="o">=</span> <span class="n">Livro</span><span class="o">.</span><span class="n">obter</span><span class="p">(</span><span class="n">id_livro</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">livro</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Informações do Livro:&quot;</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">livro</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ID: </span><span class="si">{</span><span class="n">livro</span><span class="o">.</span><span class="n">id_livro</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Título: </span><span class="si">{</span><span class="n">livro</span><span class="o">.</span><span class="n">titulo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Autor: </span><span class="si">{</span><span class="n">livro</span><span class="o">.</span><span class="n">autor</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Categoria: </span><span class="si">{</span><span class="n">livro</span><span class="o">.</span><span class="n">categoria</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ISBN: </span><span class="si">{</span><span class="n">livro</span><span class="o">.</span><span class="n">isbn</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ano de Publicação: </span><span class="si">{</span><span class="n">livro</span><span class="o">.</span><span class="n">ano_publicacao</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Disponível: </span><span class="si">{</span><span class="s1">&#39;Sim&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">livro</span><span class="o">.</span><span class="n">disponivel</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;Não&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Livro não encontrado.&quot;</span><span class="p">)</span>
 
@@ -436,7 +554,7 @@
                 <span class="n">categoria</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nova Categoria (</span><span class="si">{</span><span class="n">livro</span><span class="o">.</span><span class="n">categoria</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">livro</span><span class="o">.</span><span class="n">categoria</span>
                 <span class="n">isbn</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Novo ISBN (</span><span class="si">{</span><span class="n">livro</span><span class="o">.</span><span class="n">isbn</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">livro</span><span class="o">.</span><span class="n">isbn</span>
                 <span class="n">ano_publicacao</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Novo Ano de Publicação (</span><span class="si">{</span><span class="n">livro</span><span class="o">.</span><span class="n">ano_publicacao</span><span class="si">}</span><span class="s2">): &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">livro</span><span class="o">.</span><span class="n">ano_publicacao</span>
-                <span class="n">Livro</span><span class="o">.</span><span class="n">atualizar</span><span class="p">(</span><span class="n">id_livro</span><span class="p">,</span> <span class="n">titulo</span><span class="o">=</span><span class="n">titulo</span><span class="p">,</span> <span class="n">autor</span><span class="o">=</span><span class="n">autor</span><span class="p">,</span> <span class="n">categoria</span><span class="o">=</span><span class="n">categoria</span><span class="p">,</span> <span class="n">isbn</span><span class="o">=</span><span class="n">isbn</span><span class="p">,</span> <span class="n">ano_publicacao</span><span class="o">=</span><span class="n">ano_publicacao</span><span class="p">)</span>
+                <span class="n">Livro</span><span class="o">.</span><span class="n">atualizar</span><span class="p">(</span><span class="n">id_livro</span><span class="p">,</span> <span class="n">titulo</span><span class="o">=</span><span class="n">titulo</span><span class="p">,</span> <span class="n">autor</span><span class="o">=</span><span class="n">autor</span><span class="p">,</span> <span class="n">categoria</span><span class="o">=</span><span class="n">categoria</span><span class="p">,</span> <span class="n">isbn</span><span class="o">=</span><span class="n">isbn</span><span class="p">,</span> <span class="n">ano_publicacao</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">ano_publicacao</span><span class="p">))</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Livro não encontrado.&quot;</span><span class="p">)</span>
 
@@ -448,15 +566,41 @@
             <span class="n">Livro</span><span class="o">.</span><span class="n">listar_todos</span><span class="p">()</span>
 
         <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;6&quot;</span><span class="p">:</span>
+            <span class="n">termo</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Digite o título, autor ou ISBN para buscar: &quot;</span><span class="p">)</span>
+            <span class="n">Livro</span><span class="o">.</span><span class="n">procurar</span><span class="p">(</span><span class="n">termo</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;7&quot;</span><span class="p">:</span>
+            <span class="n">id_livro</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;ID do Livro: &quot;</span><span class="p">)</span>
+            <span class="n">Livro</span><span class="o">.</span><span class="n">verificar_disponibilidade</span><span class="p">(</span><span class="n">id_livro</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">opcao</span> <span class="o">==</span> <span class="s2">&quot;8&quot;</span><span class="p">:</span>
             <span class="k">break</span>
 
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Opção inválida! Tente novamente.&quot;</span><span class="p">)</span></div>
 
 
+
 <div class="viewcode-block" id="menu_funcionarios">
-<a class="viewcode-back" href="../main.html#main.menu_funcionarios">[docs]</a>
+<a class="viewcode-back" href="../main.html#main.menu_funcionarios">[documentos]</a>
 <span class="k">def</span> <span class="nf">menu_funcionarios</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Exibe o menu de gerenciamento de funcionários, permitindo ao usuário realizar operações como adicionar,</span>
+<span class="sd">    consultar, atualizar, deletar e listar funcionários.</span>
+
+<span class="sd">    Opções do Menu:</span>
+<span class="sd">        1. Adicionar Funcionário</span>
+<span class="sd">        2. Consultar Funcionário por ID</span>
+<span class="sd">        3. Atualizar Funcionário</span>
+<span class="sd">        4. Deletar Funcionário</span>
+<span class="sd">        5. Listar Todos os Funcionários</span>
+<span class="sd">        6. Voltar ao Menu Principal</span>
+
+<span class="sd">    Exemplo:</span>
+<span class="sd">        &gt;&gt;&gt; menu_funcionarios()</span>
+<span class="sd">        Gerenciamento de Funcionários</span>
+<span class="sd">        Escolha uma opção: 1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Gerenciamento de Funcionários&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Adicionar Funcionário&quot;</span><span class="p">)</span>
@@ -515,8 +659,23 @@
 
 
 <div class="viewcode-block" id="menu_emprestimos">
-<a class="viewcode-back" href="../main.html#main.menu_emprestimos">[docs]</a>
+<a class="viewcode-back" href="../main.html#main.menu_emprestimos">[documentos]</a>
 <span class="k">def</span> <span class="nf">menu_emprestimos</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Exibe o menu de gerenciamento de empréstimos, permitindo ao usuário criar, consultar, deletar e listar empréstimos.</span>
+
+<span class="sd">    Opções do Menu:</span>
+<span class="sd">        1. Criar Empréstimo</span>
+<span class="sd">        2. Consultar Empréstimo por ID</span>
+<span class="sd">        3. Deletar Empréstimo</span>
+<span class="sd">        4. Listar Todos os Empréstimos</span>
+<span class="sd">        5. Voltar ao Menu Principal</span>
+
+<span class="sd">    Exemplo:</span>
+<span class="sd">        &gt;&gt;&gt; menu_emprestimos()</span>
+<span class="sd">        Gerenciamento de Empréstimos</span>
+<span class="sd">        Escolha uma opção: 1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Gerenciamento de Empréstimos&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Criar Empréstimo&quot;</span><span class="p">)</span>
@@ -585,7 +744,7 @@
 
 
 <div class="viewcode-block" id="gerar_relatorio_mensal">
-<a class="viewcode-back" href="../main.html#main.gerar_relatorio_mensal">[docs]</a>
+<a class="viewcode-back" href="../main.html#main.gerar_relatorio_mensal">[documentos]</a>
 <span class="k">def</span> <span class="nf">gerar_relatorio_mensal</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gera e exibe um relatório mensal com informações sobre livros, leitores e empréstimos registrados.</span>
@@ -598,14 +757,16 @@
 <span class="sd">    - Número de leitores únicos ativos no mês.</span>
 <span class="sd">    - Livro mais popular (título e ID) com base no número de empréstimos.</span>
 
+<span class="sd">    O relatório é gerado com base no mês atual e considera os empréstimos realizados a partir do primeiro dia do mês.</span>
+
 <span class="sd">    Args:</span>
 <span class="sd">        Nenhum</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        None: A função apenas exibe os dados processados no console.</span>
+<span class="sd">        None: A função apenas exibe os dados processados no console, sem retornar valores.</span>
 
-<span class="sd">    Raises:</span>
-<span class="sd">        Nenhum</span>
+<span class="sd">    Exceções:</span>
+<span class="sd">        Nenhuma: Esta função não levanta exceções.</span>
 
 <span class="sd">    Exemplo de saída:</span>
 <span class="sd">        Relatório Mensal:</span>
@@ -616,24 +777,35 @@
 <span class="sd">        Leitores Ativos no Mês: 6</span>
 <span class="sd">        Livro Mais Popular no Mês: &quot;O Alquimista&quot; (ID: 3)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+   
     <span class="n">hoje</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>  
+    
     <span class="n">inicio_mes</span> <span class="o">=</span> <span class="n">hoje</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
 
     <span class="n">emprestimos_mes</span> <span class="o">=</span> <span class="p">[</span>
         <span class="n">e</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">Emprestimo</span><span class="o">.</span><span class="n">emprestimos</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">data_emprestimo</span> <span class="o">&gt;=</span> <span class="n">inicio_mes</span>  
     <span class="p">]</span>
+    
+
     <span class="n">total_emprestimos</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">emprestimos_mes</span><span class="p">)</span>
+    
+
     <span class="n">livros_devolvidos</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">emprestimos_mes</span> <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">data_devolucao</span> <span class="o">&lt;=</span> <span class="n">hoje</span><span class="p">)</span>
+    
+
     <span class="n">leitores_ativos</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">numero_leitor</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">emprestimos_mes</span><span class="p">))</span>
+
 
     <span class="n">livro_popular_id</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">livro_popular_titulo</span> <span class="o">=</span> <span class="kc">None</span>
+
 
     <span class="k">if</span> <span class="n">emprestimos_mes</span><span class="p">:</span>
         <span class="n">livros_contagem</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">emprestimos_mes</span><span class="p">:</span>
             <span class="n">livros_contagem</span><span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">isbn_livro</span><span class="p">]</span> <span class="o">=</span> <span class="n">livros_contagem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">isbn_livro</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
         <span class="n">livro_popular_id</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">livros_contagem</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">livros_contagem</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
         <span class="n">livro_popular</span> <span class="o">=</span> <span class="n">Livro</span><span class="o">.</span><span class="n">obter</span><span class="p">(</span><span class="n">livro_popular_id</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">livro_popular</span><span class="p">:</span>
@@ -642,16 +814,19 @@
     <span class="n">total_livros</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Livro</span><span class="o">.</span><span class="n">livros</span><span class="p">)</span>
     <span class="n">total_leitores</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Leitor</span><span class="o">.</span><span class="n">leitores</span><span class="p">)</span>
 
+
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Relatório Mensal:&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total de Livros Cadastrados: </span><span class="si">{</span><span class="n">total_livros</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total de Leitores Cadastrados: </span><span class="si">{</span><span class="n">total_leitores</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total de Empréstimos no Mês: </span><span class="si">{</span><span class="n">total_emprestimos</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Livros Devolvidos no Mês: </span><span class="si">{</span><span class="n">livros_devolvidos</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Leitores Ativos no Mês: </span><span class="si">{</span><span class="n">leitores_ativos</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
     <span class="k">if</span> <span class="n">livro_popular_titulo</span> <span class="ow">and</span> <span class="n">livro_popular_id</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Livro Mais Popular no Mês: </span><span class="si">{</span><span class="n">livro_popular_titulo</span><span class="si">}</span><span class="s2"> (ID: </span><span class="si">{</span><span class="n">livro_popular_id</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Livro Mais Popular no Mês: Nenhum&quot;</span><span class="p">)</span></div>
+
 
 
 
@@ -670,7 +845,7 @@
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2024, Author
+                Copyright &#169; 2024, CRISTIANO, HENRIQUE, FRANCISCO, AFONSO
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -690,9 +865,10 @@
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+</div><script src="../_static/documentation_options.js?v=103ffe9a"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/translations.js?v=beaedd51"></script>
     </body>
 </html>

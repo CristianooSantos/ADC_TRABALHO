@@ -1,12 +1,12 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="./">
+<html class="no-js" lang="pt" data-content_root="./">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="funcionario module" href="funcionario.html" /><link rel="prev" title="src documentation" href="index.html" />
+<link rel="index" title="Índice" href="genindex.html" /><link rel="search" title="Pesquisar" href="search.html" /><link rel="next" title="funcionario module" href="funcionario.html" /><link rel="prev" title="src documentation" href="index.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>emprestimo module - src documentation</title>
+        <title>emprestimo module - Documentação GESTOR BIBLIOTECA ADC</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
@@ -166,7 +166,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">src  documentation</div></a>
+      <a href="index.html"><div class="brand">Documentação GESTOR BIBLIOTECA ADC </div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -190,10 +190,10 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">src  documentation</span>
+  <span class="sidebar-brand-text">Documentação GESTOR BIBLIOTECA ADC </span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input class="sidebar-search" placeholder="Pesquisar" name="q" aria-label="Pesquisar">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -249,12 +249,48 @@
 <span id="emprestimo-module"></span><h1>emprestimo module<a class="headerlink" href="#module-emprestimo" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="emprestimo.Emprestimo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">emprestimo.</span></span><span class="sig-name descname"><span class="pre">Emprestimo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isbn_livro</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numero_leitor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_funcionario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_emprestimo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_devolucao</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">emprestimo.</span></span><span class="sig-name descname"><span class="pre">Emprestimo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isbn_livro</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numero_leitor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_funcionario</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_emprestimo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_devolucao</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe para representar e gerir os empréstimos de livros.</p>
+<section id="atributos">
+<h2>Atributos:<a class="headerlink" href="#atributos" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>emprestimos<span class="classifier">dict</span></dt><dd><p>Dicionário para armazenar os empréstimos com seus respetivos IDs como chaves.</p>
+</dd>
+<dt>contador_emprestimos<span class="classifier">int</span></dt><dd><p>Contador sequencial para gerar IDs únicos para os empréstimos.</p>
+</dd>
+</dl>
+</section>
+<section id="metodos">
+<h2>Métodos:<a class="headerlink" href="#metodos" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>__init__(self, isbn_livro, numero_leitor, id_funcionario, data_emprestimo=None, data_devolucao=None):</dt><dd><p>Construtor da classe para inicializar um novo empréstimo.</p>
+</dd>
+<dt>salvar(self):</dt><dd><p>Salva o empréstimo atual no dicionário de empréstimos.</p>
+</dd>
+<dt>obter(id_emprestimo):</dt><dd><p>Obtém os dados de um empréstimo pelo ID.</p>
+</dd>
+<dt>deletar(id_emprestimo):</dt><dd><p>Remove um empréstimo do sistema pelo ID.</p>
+</dd>
+<dt>listar_todos():</dt><dd><p>Lista todos os empréstimos armazenados.</p>
+</dd>
+<dt>salvar_em_arquivo(arquivo):</dt><dd><p>Salva os empréstimos num ficheiro binário.</p>
+</dd>
+<dt>carregar_de_arquivo(arquivo):</dt><dd><p>Carrega os empréstimos de um ficheiro binário.</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="emprestimo.Emprestimo.carregar_de_arquivo">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">carregar_de_arquivo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arquivo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.carregar_de_arquivo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.carregar_de_arquivo" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">carregar_de_arquivo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arquivo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.carregar_de_arquivo"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.carregar_de_arquivo" title="Link to this definition">¶</a></dt>
+<dd><p>Carrega empréstimos de um ficheiro binário.</p>
+<section id="parametros">
+<h3>Parâmetros:<a class="headerlink" href="#parametros" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>arquivo<span class="classifier">str</span></dt><dd><p>Nome do ficheiro a ser lido.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="emprestimo.Emprestimo.contador_emprestimos">
@@ -263,8 +299,16 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="emprestimo.Emprestimo.deletar">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deletar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_emprestimo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.deletar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.deletar" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deletar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_emprestimo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.deletar"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.deletar" title="Link to this definition">¶</a></dt>
+<dd><p>Remove um empréstimo pelo ID.</p>
+<section id="id1">
+<h3>Parâmetros:<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>id_emprestimo<span class="classifier">int</span></dt><dd><p>Identificador do empréstimo a ser removido.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="emprestimo.Emprestimo.emprestimos">
@@ -273,24 +317,50 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="emprestimo.Emprestimo.listar_todos">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">listar_todos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.listar_todos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.listar_todos" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">listar_todos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.listar_todos"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.listar_todos" title="Link to this definition">¶</a></dt>
+<dd><p>Lista todos os empréstimos no sistema.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="emprestimo.Emprestimo.obter">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">obter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_emprestimo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.obter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.obter" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">obter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_emprestimo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.obter"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.obter" title="Link to this definition">¶</a></dt>
+<dd><p>Obtém os dados de um empréstimo pelo ID.</p>
+<section id="id2">
+<h3>Parâmetros:<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>id_emprestimo<span class="classifier">int</span></dt><dd><p>Identificador do empréstimo a ser obtido.</p>
+</dd>
+</dl>
+</section>
+<section id="retorna">
+<h3>Retorna:<a class="headerlink" href="#retorna" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>Emprestimo</dt><dd><p>Objeto do empréstimo correspondente ou None se não existir.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="emprestimo.Emprestimo.salvar">
-<span class="sig-name descname"><span class="pre">salvar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.salvar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.salvar" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">salvar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.salvar"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.salvar" title="Link to this definition">¶</a></dt>
+<dd><p>Salva o empréstimo no dicionário de empréstimos.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="emprestimo.Emprestimo.salvar_em_arquivo">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">salvar_em_arquivo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arquivo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.salvar_em_arquivo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.salvar_em_arquivo" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">salvar_em_arquivo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arquivo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/emprestimo.html#Emprestimo.salvar_em_arquivo"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#emprestimo.Emprestimo.salvar_em_arquivo" title="Link to this definition">¶</a></dt>
+<dd><p>Salva todos os empréstimos num ficheiro binário.</p>
+<section id="id3">
+<h3>Parâmetros:<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<dl class="simple">
+<dt>arquivo<span class="classifier">str</span></dt><dd><p>Nome do ficheiro onde os dados serão armazenados.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
 
+</section>
 </dd></dl>
 
 </section>
@@ -324,7 +394,7 @@
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2024, Author
+                Copyright &#169; 2024, CRISTIANO, HENRIQUE, FRANCISCO, AFONSO
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -373,9 +443,10 @@
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+</div><script src="_static/documentation_options.js?v=103ffe9a"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/translations.js?v=beaedd51"></script>
     </body>
 </html>

@@ -1,11 +1,11 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="pt" data-content_root="../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Índice" href="../genindex.html" /><link rel="search" title="Pesquisar" href="../search.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
-        <title>leitor - src documentation</title>
+        <title>leitor - Documentação GESTOR BIBLIOTECA ADC</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
@@ -165,7 +165,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">src  documentation</div></a>
+      <a href="../index.html"><div class="brand">Documentação GESTOR BIBLIOTECA ADC </div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -189,10 +189,10 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">src  documentation</span>
+  <span class="sidebar-brand-text">Documentação GESTOR BIBLIOTECA ADC </span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
-  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input class="sidebar-search" placeholder="Pesquisar" name="q" aria-label="Pesquisar">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -238,7 +238,7 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <h1>Source code for leitor</h1><div class="highlight"><pre>
+          <h1>Código fonte de leitor</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Leitor</span>
 <span class="sd">======</span>
@@ -249,7 +249,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
 <div class="viewcode-block" id="Leitor">
-<a class="viewcode-back" href="../leitor.html#leitor.Leitor">[docs]</a>
+<a class="viewcode-back" href="../leitor.html#leitor.Leitor">[documentos]</a>
 <span class="k">class</span> <span class="nc">Leitor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Classe para gerenciar os leitores de uma biblioteca.</span>
 
@@ -277,7 +277,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
 
 <div class="viewcode-block" id="Leitor.salvar">
-<a class="viewcode-back" href="../leitor.html#leitor.Leitor.salvar">[docs]</a>
+<a class="viewcode-back" href="../leitor.html#leitor.Leitor.salvar">[documentos]</a>
     <span class="k">def</span> <span class="nf">salvar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Salva o leitor no dicionário estático `Leitor.leitores`.</span>
 
@@ -296,7 +296,7 @@
 
 
 <div class="viewcode-block" id="Leitor.obter">
-<a class="viewcode-back" href="../leitor.html#leitor.Leitor.obter">[docs]</a>
+<a class="viewcode-back" href="../leitor.html#leitor.Leitor.obter">[documentos]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">obter</span><span class="p">(</span><span class="n">numero_leitor</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Busca um leitor pelo número.</span>
@@ -315,14 +315,14 @@
 
 
 <div class="viewcode-block" id="Leitor.atualizar">
-<a class="viewcode-back" href="../leitor.html#leitor.Leitor.atualizar">[docs]</a>
+<a class="viewcode-back" href="../leitor.html#leitor.Leitor.atualizar">[documentos]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">atualizar</span><span class="p">(</span><span class="n">numero_leitor</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Atualiza as informações de um leitor existente.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            numero_leitor (str): Número do leitor a ser atualizado.</span>
-<span class="sd">            **kwargs: Atributos do leitor que precisam ser atualizados.</span>
+<span class="sd">            **kwargs**: Atributos do leitor que precisam ser atualizados.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            KeyError: Se o leitor não for encontrado.</span>
@@ -340,7 +340,7 @@
 
 
 <div class="viewcode-block" id="Leitor.deletar">
-<a class="viewcode-back" href="../leitor.html#leitor.Leitor.deletar">[docs]</a>
+<a class="viewcode-back" href="../leitor.html#leitor.Leitor.deletar">[documentos]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">deletar</span><span class="p">(</span><span class="n">numero_leitor</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove um leitor do sistema.</span>
@@ -362,7 +362,7 @@
 
 
 <div class="viewcode-block" id="Leitor.listar_todos">
-<a class="viewcode-back" href="../leitor.html#leitor.Leitor.listar_todos">[docs]</a>
+<a class="viewcode-back" href="../leitor.html#leitor.Leitor.listar_todos">[documentos]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">listar_todos</span><span class="p">():</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Lista todos os leitores cadastrados.</span>
@@ -391,7 +391,7 @@
 
 
 <div class="viewcode-block" id="Leitor.salvar_em_arquivo">
-<a class="viewcode-back" href="../leitor.html#leitor.Leitor.salvar_em_arquivo">[docs]</a>
+<a class="viewcode-back" href="../leitor.html#leitor.Leitor.salvar_em_arquivo">[documentos]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">salvar_em_arquivo</span><span class="p">(</span><span class="n">arquivo</span><span class="p">):</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">arquivo</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -400,7 +400,7 @@
 
 
 <div class="viewcode-block" id="Leitor.carregar_de_arquivo">
-<a class="viewcode-back" href="../leitor.html#leitor.Leitor.carregar_de_arquivo">[docs]</a>
+<a class="viewcode-back" href="../leitor.html#leitor.Leitor.carregar_de_arquivo">[documentos]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">carregar_de_arquivo</span><span class="p">(</span><span class="n">arquivo</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
@@ -423,7 +423,7 @@
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2024, Author
+                Copyright &#169; 2024, CRISTIANO, HENRIQUE, FRANCISCO, AFONSO
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -443,9 +443,10 @@
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+</div><script src="../_static/documentation_options.js?v=103ffe9a"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/translations.js?v=beaedd51"></script>
     </body>
 </html>

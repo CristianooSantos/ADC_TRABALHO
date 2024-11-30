@@ -20,7 +20,7 @@ class Funcionario:
         Salva o funcionário atual no dicionário de funcionários e regista a atividade.
     obter(id_funcionario):
         Obtém os dados de um funcionário pelo ID.
-    atualizar(id_funcionario, **kwargs):
+    atualizar(id_funcionario, **kwargs**):
         Atualiza os dados de um funcionário específico.
     deletar(id_funcionario):
         Remove um funcionário do sistema pelo ID.
@@ -30,7 +30,7 @@ class Funcionario:
         Salva os funcionários num ficheiro binário.
     carregar_de_arquivo(arquivo):
         Carrega os funcionários de um ficheiro binário.
-    atribuir_funcoes(id_funcionario, *funcoes):
+    atribuir_funcoes(id_funcionario, *funcoes*):
         Atribui funções a um funcionário específico.
     gerar_relatorio_atividades():
         Gera e exibe um relatório de todas as atividades registadas.
@@ -102,7 +102,7 @@ class Funcionario:
         -----------
         id_funcionario : str
             Identificador do funcionário a ser atualizado.
-        **kwargs : dict
+        **kwargs** : dict
             Dados a serem atualizados no funcionário.
         """
         funcionario = Funcionario.obter(id_funcionario)
@@ -190,7 +190,7 @@ class Funcionario:
         -----------
         id_funcionario : str
             Identificador do funcionário.
-        *funcoes : tuple
+        *funcoes* : tuple
             Lista de funções a serem atribuídas.
         """
         funcionario = Funcionario.obter(id_funcionario)

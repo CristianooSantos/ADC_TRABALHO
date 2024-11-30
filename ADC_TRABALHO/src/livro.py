@@ -65,7 +65,7 @@ class Livro:
 
         Args:
             id_livro (str): ID do livro a ser atualizado.
-            **kwargs: Atributos do livro que precisam ser atualizados.
+            **kwargs**: Atributos do livro que precisam ser atualizados.
 
         Levanta:
             KeyError: Se o livro não for encontrado.
